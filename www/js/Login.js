@@ -1,7 +1,7 @@
 document.addEventListener('deviceready', onDeviceReady, false);
 
 function onDeviceReady() {
-	//document.addEventListener("resume", onResume, false);
+	//document.addEventListener("resume", onResume, false);  cli-5.2.0
 	
 	last_click_time = new Date().getTime();
 	
