@@ -9,7 +9,7 @@
 		<author href="http://www.app-piu.it" email="info@prolution.it">
 		 Prolution Report
 		</author>
-		<preference name="phonegap-version" value="cli-5.2.0" />
+		<preference name="phonegap-version" value="3.7.0" />
 		<preference name="orientation" value="portrait" />
 		<preference name="fullscreen" value="true" />
 		<preference name="target-device" value="universal" />
