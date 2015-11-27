@@ -93,7 +93,6 @@ var app = {
 		var Categoria="";
 		var Provincia="";
 		localStorage.setItem("unico", "0");
-		self.document.formia.volantini.value = 0;
 		var db;
 		var dbCreated = false;
 		
@@ -355,7 +354,7 @@ function codeLatLng(lati,lngi) {
 					 
 					 } else {
 					 navigator.notification.alert(
-												  'Non riesco a rilevare la tua posizione',  // message
+												  'Inserisci un Indirizzo manualmente',  // message
 												  alertDismissed,         // callback
 												  'Attenzione',            // title
 												  'OK'                  // buttonName
@@ -365,7 +364,7 @@ function codeLatLng(lati,lngi) {
 					 }
 					 } else {
 					 navigator.notification.alert(
-												  'Non riesco a rilevare la tua posizione',  // message
+												  'Inserisci un Indirizzo manualmente',  // message
 												  alertDismissed,         // callback
 												  'Attenzione',            // title
 												  'OK'                  // buttonName
