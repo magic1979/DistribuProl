@@ -98,10 +98,10 @@ var app = {
 		var dbCreated = false;
 		
 		
-		var connectionStatus = false;
-		connectionStatus = navigator.onLine ? 'online' : 'offline';
+		//var connectionStatus = false;
+		//connectionStatus = navigator.onLine ? 'online' : 'offline';
 		
-		if(connectionStatus=='online'){
+		//if(connectionStatus=='online'){
 			
 			var today = new Date();
 			var dd = today.getDate();
@@ -135,8 +135,8 @@ var app = {
 				$("#footer").show();
 			}, 1500);
 
-		}
-		else{
+		//}
+		/*else{
 			
 			var tabella = "<table align='center' border='0' width='100%' height='120px'>";
 			tabella = tabella + "<tr><td align='center'><a href='javascript:riparti()' class='btn'><font color='#fff'>Connetti</font></a></td></tr>";
@@ -146,7 +146,7 @@ var app = {
 			
 			
 			$("#footer").show();
-		}
+		}*/
     }
 	
 }
@@ -832,6 +832,17 @@ function start() {
 
 
 function salva() {
+	
+	if (self.document.formia.id.value == "") {
+		navigator.notification.alert(
+									 'inserire un id servizio valido',  // message
+									 alertDismissed,         // callback
+									 'Id Servizio',            // title
+									 'OK'                  // buttonName
+									 );
+		return;
+	}
+	
 	var imgvolantino = "";
 	$("#opzioni").hide();
 	
@@ -1011,7 +1022,7 @@ function salva() {
 		   $("#opzioni").show();
 		   
 		   navigator.notification.alert(
-									 'Errore Imprevisto, contatta il fornitore',  // message
+									 'Errore Imprevisto, contatta il fornitore o riprova tra qualche minuto',  // message
 									 alertDismissed,         // callback
 									 'Errore',            // title
 									 'OK'                  // buttonName
@@ -1134,9 +1145,9 @@ function salvatutto() {
 											 $("#opzioni").show();
 											 
 											 navigator.notification.alert(
-																		  'Errore imprevisto nel caricamento dei dati',  // message
+																		  'Errore imprevisto nel caricamento dei dati, riprova tra qualche minuto',  // message
 																		  alertDismissed,         // callback
-																		  'Connessione Internet',            // title
+																		  'Errore Imprevisto',            // title
 																		  'OK'                  // buttonName
 																		  );
 											 
