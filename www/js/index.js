@@ -258,6 +258,7 @@ function dlt(){
 	$("#btnsalva").show();
 	
 	localStorage.setItem("imgvolantino", "");
+	self.document.formia.volantini.value = 0;
 	$("#ufoto").hide();
 	
 	seleziona();
@@ -831,6 +832,7 @@ function start() {
 
 
 function salva() {
+	var imgvolantino = "";
 	
 	if (self.document.formia.id.value == "") {
 		navigator.notification.alert(
@@ -842,8 +844,6 @@ function salva() {
 		return;
 	}
 	
-	var imgvolantino = "";
-	$("#opzioni").hide();
 	
 	if (self.document.formia.ora_fine.value == "") {
 		navigator.notification.alert(
@@ -997,6 +997,9 @@ function salva() {
 		imgvolantino = localStorage.getItem("imgvolantino");
 		
 	}
+	
+	
+	$("#opzioni").hide();
 
 	
 	$(".spinner").show();
