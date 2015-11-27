@@ -94,28 +94,9 @@ function login() {
 		return;
 	}
 	
-	/*EmailAddr = self.document.formia2.email.value;
-	Filtro = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-]{2,})+\.)+([a-zA-Z0-9]{2,})+$/;
-	if (Filtro.test(EmailAddr)) {
-	 
-	 F10620
-	 ivQ0MQ4N
-		
-	}
-	else {
-		navigator.notification.alert(
-									 'Caratteri email non consentiti',  // message
-									 alertDismissed,         // callback
-									 'Email',            // title
-									 'OK'                  // buttonName
-									 );
-		return;
-	}*/
 	
 	var newpin = sha1(pin2);
 	
-	//alert(newpin)
-
 	LoginVera(email2,newpin);
 	
 }
