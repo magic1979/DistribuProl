@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+		<meta property="og:locale" content="en_US" />
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+			
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+		<link rel="stylesheet" href="font.css">
+			
+		<link rel="stylesheet" href="themes/jquery.mobile.structure-1.4.2.min.css" />
+		<link rel="stylesheet" href="themes/BetaApp.css" />
+		<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+		<link rel="stylesheet" href="css/spinner.css" />
+		<link rel="stylesheet" href="css/app-reset.css" />
+		<link rel="stylesheet" href="css/app-ios.css" />
+		<link rel="stylesheet" type="text/css" href="css/zocial.css" />
+		<link rel="stylesheet" href="css/jquery-ui.css">
+		
+		<script src="jquery-1.10.2.min.js"></script>
+		<script src="js/jquery-ui.min.js"></script>
+		<script src="js/jquery.mobile-1.4.2.min.js"></script>
+		<script src="jquery.countdown.js"></script>
+		<script src="jquery.raty.js"></script>
+		
+		
+        <title>FoodApp</title>
+		
+		<style type="text/css">
+			* {
+				-webkit-box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				box-sizing: border-box;
+			}
+		
+		html {
+			-ms-touch-action: none;
+		}
+		
+		body,ul,li {
+			padding: 0;
+			margin: 0;
+			border: 0;
+		}
+		
+		body {
+			font-size: 12px;
+			font-family: ubuntu, helvetica, arial;
+			overflow: hidden; /* this is important to prevent the whole page to bounce */
+		}
+		
+		#header {
+			position: absolute;
+			z-index: 2;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 45px;
+			line-height: 45px;
+			padding: 0;
+			color: #fff;
+			font-size: 20px;
+			text-align: center;
+			font-weight: bold;
+		}
+		
+		#footer {
+			position: absolute;
+			z-index: 2;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			height: 48px;
+			background: #fff;
+			padding: 0;
+			border-top: 0px solid #444;
+		}
+		
+		#wrapper {
+			position: absolute;
+			z-index: 1;
+			top: 45px;
+			bottom: 48px;
+			left: 0;
+			width: 100%;
+			background: #fff;
+			overflow: hidden;
+		}
+		
+		#scroller {
+			position: absolute;
+			z-index: 1;
+			-webkit-tap-highlight-color: rgba(0,0,0,0);
+			width: 100%;
+			-webkit-transform: translateZ(0);
+			-moz-transform: translateZ(0);
+			-ms-transform: translateZ(0);
+			-o-transform: translateZ(0);
+			transform: translateZ(0);
+			-webkit-touch-callout: none;
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+			-webkit-text-size-adjust: none;
+			-moz-text-size-adjust: none;
+			-ms-text-size-adjust: none;
+			-o-text-size-adjust: none;
+			text-size-adjust: none;
+		}
+		
+		#scroller ul {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+			width: 100%;
+			text-align: left;
+		}
+		
+		#scroller li {
+			padding: 0 10px;
+			height: 0px;
+			line-height: 0px;
+			border-bottom: 1px solid #fff;
+			border-top: 1px solid #fff;
+			background-color: #fff;
+			font-size: 14px;
+		}
+		
+			</style>
+		
+		<style>
+			.ui-icon-taifun:after {
+				background-image: url("img/CartW.png");
+				background-size: 18px 18px;
+				
+			}
+			.ui-icon-userhome:after {
+			background-image: url("img/UserW.png");
+			background-size: 18px 18px;
+			
+			}
+			.ui-icon-pinhome:after {
+			background-image: url("img/Altro.png");
+			background-size: 18px 18px;
+			
+			}
+			.ui-icon-ristohome:after {
+			background-image: url("img/RistoW.png");
+			background-size: 18px 18px;
+			
+			}
+			.ui-icon-homehome:after {
+			background-image: url("img/Best1.png");
+			background-size: 18px 18px;
+			
+			}
+		
+			.ui-mobile, .ui-mobile .ui-page, .ui-mobile [data-role="page"],
+			.ui-mobile [data-role="dialog"], .ui-page, .ui-mobile .ui-page-active {
+				overflow: hidden;
+				-webkit-backface-visibility: hidden;
+			}
+		
+			.div1 {
+				background-color: #f0f0f0;
+				height: 52px;
+				border: none;
+				
+				vertical-align: middle;
+			}
+			.div2 {
+				background-color: #FFFFFF;
+			}
+		.div3 {
+			background-color: #F0F0F0;
+			border: none;
+			margin:0 auto;
+			height: 10px;
+
+		}
+		.div4 {
+			background: rgb(125,126,125); /* Old browsers */
+			background: -moz-linear-gradient(45deg, rgba(125,126,125,1) 0%, rgba(14,14,14,1) 100%); /* FF3.6+ */
+			background: -webkit-gradient(linear, left bottom, right top, color-stop(0%,rgba(125,126,125,1)), color-stop(100%,rgba(14,14,14,1))); /* Chrome,Safari4+ */
+			background: -webkit-linear-gradient(45deg, rgba(125,126,125,1) 0%,rgba(14,14,14,1) 100%); /* Chrome10+,Safari5.1+ */
+			background: -o-linear-gradient(45deg, rgba(125,126,125,1) 0%,rgba(14,14,14,1) 100%); /* Opera 11.10+ */
+			background: -ms-linear-gradient(45deg, rgba(125,126,125,1) 0%,rgba(14,14,14,1) 100%); /* IE10+ */
+			background: linear-gradient(45deg, rgba(125,126,125,1) 0%,rgba(14,14,14,1) 100%); /* W3C */
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7d7e7d', endColorstr='#0e0e0e',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+		}
+		.trBorderCell
+		{
+			height: 30px;
+			width: 320px;
+			background: rgba(0,0,0,.6);
+			
+		}
+		
+		.margine
+		{
+			margin:0 auto;
+		}
+		
+		.arrotondamento
+		{
+			border-radius: 8px;
+			-moz-border-radius: 8px; /* firefox */
+			-webkit-border-radius: 8px; /* safari, chrome */
+		}
+		.custom-btn {
+			width: 280px;
+		}
+		
+		.custom-btn2 {
+			width: 280px;
+		}
+		
+		.custom-btn3 {
+			width: 100px;
+		}
+		
+		.big { height: 80px;}
+		.big .ui-btn-inner { padding-top:25px; }
+		
+		table.tablesorter {
+			font-family:arial;
+			background-color: #f0f0f0;
+			margin:10px 0pt 15px;
+			font-size: 8pt;
+			width: 95%;
+			text-align: left;
+			border: 0px solid #FFF;
+			
+			border-radius: 5px;
+			-moz-border-radius: 5px; /* firefox */
+			-webkit-border-radius: 5px; /* safari, chrome */
+			
+		}
+		table.tablesorter thead tr th, table.tablesorter tfoot tr th {
+			background-color: #B40431;
+			border: 1px solid #FFF;
+			font-size: 8pt;
+			padding: 4px;
+			width: 55%;
+			
+			border-radius: 5px;
+			-moz-border-radius: 5px; /* firefox */
+			-webkit-border-radius: 5px; /* safari, chrome */
+			
+		}
+		table.tablesorter thead tr .header {
+			background-image: url(bg.gif);
+			background-repeat: no-repeat;
+			background-position: center right;
+			cursor: pointer;
+		}
+		table.tablesorter tbody td {
+			color: #B40431;
+			padding: 4px;
+			background-color: #FFF;
+			vertical-align: top;
+			
+		}
+		table.tablesorter tbody tr.odd td {
+			background-color:#000000;
+		}
+		table.tablesorter thead tr .headerSortUp {
+			background-image: url(asc.gif);
+		}
+		table.tablesorter thead tr .headerSortDown {
+			background-image: url(desc.gif);
+		}
+		table.tablesorter thead tr .headerSortDown, table.tablesorter thead tr .headerSortUp {
+			background-color: #B40431;
+			
+		}
+		
+		.home {
+			background-color: #9d3434;
+			background-image: url(img/minusW.png);
+			background-size: 26px 26px;
+			background-repeat: no-repeat;
+			background-position:center;
+			
+			height:28px;
+			width:28px;
+			border-radius:999em;
+			-moz-border-radius:999em;
+			-webkit-border-radius:999em;
+			-o-border-radius: 999em;
+			
+			-webkit-box-shadow: 0px 0px 0.5px 1px #FFF;
+			-moz-box-shadow: 0px 0px 0.5px 1px #FFF;
+			box-shadow: 0px 0px 0.5px 1px #FFF;
+		}
+		
+		.home1 {
+			background-color: #9d3434;
+			background-image: url(img/plusW.png);
+			background-size: 26px 26px;
+			background-repeat: no-repeat;
+			background-position:center;
+			
+			height:28px;
+			width:28px;
+			border-radius:999em;
+			-moz-border-radius:999em;
+			-webkit-border-radius:999em;
+			-o-border-radius: 999em;
+			
+			-webkit-box-shadow: 0px 0px 0.5px 1px #FFF;
+			-moz-box-shadow: 0px 0px 0.5px 1px #FFF;
+			box-shadow: 0px 0px 0.5px 1px #FFF;
+		}
+		
+		.home:active {
+			background-color: #000000;
+			border-radius:999em;
+			-moz-border-radius:999em;
+			-webkit-border-radius:999em;
+			-o-border-radius: 999em;
+			
+			-webkit-box-shadow: 0px 0px 0.5px 1px #000;
+			-moz-box-shadow: 0px 0px 0.5px 1px #000;
+			box-shadow: 0px 0px 0.5px 1px #000;
+		}
+		
+		.home1:active {
+			background-color:#000000;
+			border-radius:999em;
+			-moz-border-radius:999em;
+			-webkit-border-radius:999em;
+			-o-border-radius: 999em;
+			
+			-webkit-box-shadow: 0px 0px 0.5px 1px #000;
+			-moz-box-shadow: 0px 0px 0.5px 1px #000;
+			box-shadow: 0px 0px 0.5px 1px #000;
+		}
+
+.circolare {
+	width: 30px;
+	height: 30px;
+	border-radius:999em;
+	-moz-border-radius:999em;
+	-webkit-border-radius:999em;
+	-o-border-radius: 999em;
+	
+	-webkit-box-shadow: 0px 0px 0.5px 0.5px #000;
+	-moz-box-shadow: 0px 0px 0.5px 0.5px #000;
+	box-shadow: 0px 0px 0.5px 0.5px #000;
+}
+		
+a {text-decoration:none;}
+
+.styled-select select {
+	background: transparent;
+	width: 268px;
+	padding: 5px;
+	font-size: 16px;
+	line-height: 1;
+	border: 0;
+	border-radius: 0;
+	height: 34px;
+	-webkit-appearance: none;
+}
+		
+		.banner {
+			left:110px;
+			bottom:20px;
+			position: fixed;
+			
+			margin-left: auto ;
+			margin-right: auto ;
+			
+		}
+		
+		hr.style-six {
+			border: 0;
+			height: 0;
+			border-top: 1px solid rgba(0, 0, 0, 0.1);
+			border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+		}
+		
+		.mynav .ui-select, .mynav .ui-btn {
+			margin-top: 0;
+			margin-bottom: 0;
+			margin-left: 2px;
+			margin-right: 2px !important;
+		}
+		.conn {
+			font-size: 9pt;
+			color:#FFF;
+			background-color: #FF8000;
+		}
+
+.badge1 {
+	position:relative;
+}
+		.badge1[data-badge]:after {
+			content:attr(data-badge);
+			position:absolute;
+			top:3px;
+			right:-1px;
+			font-size:.7em;
+			background:green;
+			color:white;
+			width:18px;height:18px;
+			text-align:center;
+			line-height:20px;
+			border-radius:50%;
+			box-shadow:0 0 1px #333;
+			border: 1px solid #fff;
+		}
+		.badge2 {
+			
+		}
+		.badge2[data-badge]:after {
+			
+		}
+		.badge3 {
+			position:relative;
+		}
+		.badge3[data-badge]:after {
+			content:attr(data-badge);
+			position:absolute;
+			top:-30px;
+			right:-15px;
+			font-size:.7em;
+			background:green;
+			color:white;
+			width:20px;height:20px;
+			text-align:center;
+			line-height:20px;
+			border-radius:50%;
+			box-shadow:0 0 1px #333;
+			border: 1px solid #fff;
+		}
+		.visione {
+			color:#000;
+			font-size: 9pt;
+			text-decoration: none;
+			text-shadow:0 0 0;
+		}
+		
+		.someClass b {
+			font-weight: normal;
+			text-decoration: none;
+			text-shadow:0 0 0;
+		}
+		
+		.someClass {
+			font-weight: normal;
+			text-decoration: none;
+			text-shadow:0 0 0;
+		}
+		.someClass2 {
+			font-weight: normal;
+			text-decoration: none;
+			text-shadow:0 0 0;
+			font-size: 18px;
+		}
+		
+		</style>
+		
+    </head>
+    <body>
+		
+		<div id="page" data-role="page" class="div2" >
+			<div data-role="header" data-theme="c" data-position="fixed" data-tap-toggle="false" class="div1" data-add-back-btn="true" >
+				<span class="ui-title"> <font color="#000" size="5.5">Login</font></span>
+				<!--  data-back-btn-text=""-->
+			</div>
+			
+			<div data-role="content"><center>Accedi al tuo account</center></div>
+			
+			<center>
+				
+			<table id="formreg" align="center" width="320px">
+				<tr id="campireg">
+					<td width="320px" align="center">
+						 <form name="formia2" action="entra2.asp" method="post">
+							 <input type="text" data-theme="c" name="email" id="email" value="" placeholder="Username">
+							 <input type="password" data-theme="c" name="password" id="password" value="" placeholder="Password">
+							 <a href="javascript:login();" id="#" data-role="button" class="custom-btn" data-theme="c">Accedi</a>
+						</form>
+					</td>
+				</tr>
+				<tr>
+					<td width="320px" align="left">
+						<!--<a href="javascript:EmailDimenticata()"><font size="1" color="red">Password dimenticata</font></a><br>-->
+					</td>
+				</tr>
+				
+				<tr>
+					<td width="320px" align="center">
+						<br>
+					</td>
+				</tr>
+
+			</table>
+			
+			<!--<table align="center" width="320px">
+			<tr>
+				<td width="220px" align="left">
+					Serve un account?
+				</td>
+				<td width="100px" align="center">
+					<a href="#page6" id="#" data-role="button" class="custom-btn3" data-theme="c">Iscriviti</a>
+				</td>
+			</tr>
+			</table>-->
+			
+			</center>
+			<div data-role="footer" align="center" data-theme="c" data-position="fixed" data-tap-toggle="false" class="div1">
+				<span class="ui-title"> <font color="#000" size="4">Prolution Distribuzione</font></span>
+				<!--<table id="idfooter4" width="100%" align="center">
+					<tr>
+						<td width="100px" align="left">
+					<a href="index.html" rel="external" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-home">Home</a>
+				</td>
+				<td width="220px" align="center"><font color='#000' size="1">Acconsento all'uso dei miei dati personali come indicato dall'informativa sulla privacy (D.Lgs 196/2003)</td>
+				</tr></table>-->
+				
+			</div><!-- /footer4 -->
+		</div><!-- /page4 -->
+		
+		
+		<div id="page6" data-role="page" class="div2" >
+			<div data-role="header" data-theme="b" data-position="fixed" data-tap-toggle="false" class="div1" data-add-back-btn="true">
+				<table id="idheader6" height='50' align='center'><tr><td><font color="#000" size="5.5">Login</font></td></tr></table>
+			</div>
+			<div data-role="content"><center>Registrati</center></div>
+			
+			<center>
+			
+			<table id="formreg" align="center" width="320px">
+
+				<tr>
+					<td width="320px" align="center">
+					 <form name="formia" action="entra.asp" method="post">
+						<input type="text" data-theme="b" name="emailreg" id="emailreg" value="" placeholder="Email">
+						<input type="text" data-theme="b" name="pinreg" id="pinreg" value="" placeholder="Password">
+						<input type="text" data-theme="b" name="nome" id="nome" value="" placeholder="Nome">
+						<input type="text" data-theme="b" name="cognome" id="cognome" value="" placeholder="Cognome">
+						<input type="text" data-theme="b" name="indirizzo" id="indirizzo" value="" placeholder="Indirizzo">
+						<input type="text" data-theme="b" name="cap" id="cap" value="" placeholder="Cap">
+						<input type="text" data-theme="b" name="civico" id="civico" value="" placeholder="Civico">
+						<input type="text" data-theme="b" name="citta" id="citta" value="" placeholder="Citta">
+						<input type="text" data-theme="b" name="telefono" id="telefono" value="" placeholder="Telefono">
+									
+						<a href="#" id="#" data-role="button" data-theme="b" class="custom-btn">Iscriviti</a>
+					 </form>
+					</td>
+				</tr>
+			</table>
+			
+<table align="center" width="320px">
+<tr>
+	<td width="220px" align="left">
+		Hai un account?
+	</td>
+	<td width="100px" align="center">
+		<a href="#page" id="#" data-role="button" class="custom-btn3" data-theme="c">Accedi</a>
+	</td>
+</tr>
+</table>
+			<div data-role="footer" align="center" data-theme="c" data-position="fixed" data-tap-toggle="false" class="div1">
+				<table id="idfooter4" width="100%" align="center">
+					<tr>
+						<td width="100px" align="left">
+							<a href="index.html" rel="external" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-home">Home</a>
+						</td>
+						<td width="220px" align="center"><font color='#000' size="1">Acconsento all'uso dei miei dati personali come indicato dall'informativa sulla privacy (D.Lgs 196/2003)</td>
+					</tr></table>
+			</div><!-- /footer6 -->
+		</div><!-- /page6 -->
+		
+
+		
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/Login.js"></script>
+
+		
+    </body>
+</html>

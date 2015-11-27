@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<!--
+ Copyright (c) 2012-2014 Adobe Systems Incorporated. All rights reserved.
+ 
+ Licensed to the Apache Software Foundation (ASF) under one
+ or more contributor license agreements.  See the NOTICE file
+ distributed with this work for additional information
+ regarding copyright ownership.  The ASF licenses this file
+ to you under the Apache License, Version 2.0 (the
+ "License"); you may not use this file except in compliance
+ with the License.  You may obtain a copy of the License at
+ 
+ http://www.apache.org/licenses/LICENSE-2.0
+ 
+ Unless required by applicable law or agreed to in writing,
+ software distributed under the License is distributed on an
+ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ KIND, either express or implied.  See the License for the
+ specific language governing permissions and limitations@
+ under the License.
+ -->
+<html>
+    <head>
+		<meta property="og:locale" content="en_US" />
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+			
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+		<link rel="stylesheet" href="font.css">
+			
+		<link rel="stylesheet" href="themes/jquery.mobile.structure-1.4.2.min.css" />
+		<link rel="stylesheet" href="themes/BetaApp.css" />
+		<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+		<link rel="stylesheet" href="css/spinner.css" />
+		<link rel="stylesheet" href="css/app-reset.css" />
+		<link rel="stylesheet" href="css/app-ios.css" />
+		<link rel="stylesheet" type="text/css" href="css/zocial.css" />
+		<link rel="stylesheet" href="css/jquery-ui.css">
+		
+		<script src="jquery-1.10.2.min.js"></script>
+		<script src="js/jquery-ui.min.js"></script>
+		<script src="js/jquery.mobile-1.4.2.min.js"></script>
+		<script src="jquery.countdown.js"></script>
+		<script src="jquery.raty.js"></script>
+		
+		<script type="text/javascript" src="js/iscroll.js"></script>
+		
+		
+		<script type="text/javascript">
+			
+			var myScroll;
+			
+			function loaded () {
+				myScroll = new IScroll('#wrapper', { click: true });
+				setTimeout (function(){
+					myScroll.refresh();
+				}, 1500);
+			}
+		
+		document.addEventListener('DOMContentLoaded', function () { setTimeout(loaded, 300); }, false);
+		
+		document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+		
+			</script>
+		
+		
+        <title>Volantini</title>
+		
+		<style type="text/css">
+			* {
+				-webkit-box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				box-sizing: border-box;
+			}
+		
+		html {
+			-ms-touch-action: none;
+		}
+		
+		body,ul,li {
+			padding: 0;
+			margin: 0;
+			border: 0;
+		}
+		
+		body {
+			font-size: 12px;
+			font-family: ubuntu, helvetica, arial;
+			overflow: hidden; /* this is important to prevent the whole page to bounce */
+		}
+		
+		#header {
+			position: absolute;
+			z-index: 2;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 45px;
+			line-height: 45px;
+			padding: 0;
+			color: #fff;
+			font-size: 20px;
+			text-align: center;
+			font-weight: bold;
+		}
+		
+		#footer {
+			position: absolute;
+			z-index: 2;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			height: 48px;
+			background: #fff;
+			padding: 0;
+			border-top: 0px solid #fff;
+		}
+		
+		#wrapper {
+			position: absolute;
+			z-index: 1;
+			top: 60px;
+			bottom: 48px;
+			left: 0;
+			width: 100%;
+			background: #fff;
+			overflow: hidden;
+		}
+		
+		#scroller {
+			position: absolute;
+			z-index: 1;
+			-webkit-tap-highlight-color: rgba(0,0,0,0);
+			width: 100%;
+			-webkit-transform: translateZ(0);
+			-moz-transform: translateZ(0);
+			-ms-transform: translateZ(0);
+			-o-transform: translateZ(0);
+			transform: translateZ(0);
+			-webkit-touch-callout: none;
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+			-webkit-text-size-adjust: none;
+			-moz-text-size-adjust: none;
+			-ms-text-size-adjust: none;
+			-o-text-size-adjust: none;
+			text-size-adjust: none;
+		}
+		
+		#scroller ul {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+			width: 100%;
+			text-align: left;
+		}
+		
+		#scroller li {
+			padding: 0 10px;
+			height: 40px;
+			line-height: 40px;
+			border-bottom: 1px solid #fff;
+			border-top: 1px solid #fff;
+			background-color: #fff;
+			font-size: 14px;
+		}
+		
+			</style>
+		
+		<style>
+			.ui-icon-taifun:after {
+				background-image: url("img/CartW.png");
+				background-size: 18px 18px;
+				
+			}
+			.ui-icon-userhome:after {
+			background-image: url("img/UserW.png");
+			background-size: 18px 18px;
+			
+			}
+			.ui-icon-pinhome:after {
+			background-image: url("img/Altro.png");
+			background-size: 18px 18px;
+			
+			}
+			.ui-icon-ristohome:after {
+			background-image: url("img/RistoW.png");
+			background-size: 18px 18px;
+			
+			}
+			.ui-icon-homehome:after {
+			background-image: url("img/Best1.png");
+			background-size: 18px 18px;
+			
+			}
+		
+			.ui-mobile, .ui-mobile .ui-page, .ui-mobile [data-role="page"],
+			.ui-mobile [data-role="dialog"], .ui-page, .ui-mobile .ui-page-active {
+				overflow: hidden;
+				-webkit-backface-visibility: hidden;
+			}
+		
+			.div1 {
+				background-color: #f0f0f0;
+				height: 52px;
+				border: none;
+				
+				vertical-align: middle;
+			}
+			.div2 {
+				background-color: #FFFFFF;
+			}
+		.div3 {
+			background-color: #fff;
+			border: none;
+			margin:0 auto;
+			height: 10px;
+
+		}
+		.div4 {
+			background: rgb(125,126,125); /* Old browsers */
+			background: -moz-linear-gradient(45deg, rgba(125,126,125,1) 0%, rgba(14,14,14,1) 100%); /* FF3.6+ */
+			background: -webkit-gradient(linear, left bottom, right top, color-stop(0%,rgba(125,126,125,1)), color-stop(100%,rgba(14,14,14,1))); /* Chrome,Safari4+ */
+			background: -webkit-linear-gradient(45deg, rgba(125,126,125,1) 0%,rgba(14,14,14,1) 100%); /* Chrome10+,Safari5.1+ */
+			background: -o-linear-gradient(45deg, rgba(125,126,125,1) 0%,rgba(14,14,14,1) 100%); /* Opera 11.10+ */
+			background: -ms-linear-gradient(45deg, rgba(125,126,125,1) 0%,rgba(14,14,14,1) 100%); /* IE10+ */
+			background: linear-gradient(45deg, rgba(125,126,125,1) 0%,rgba(14,14,14,1) 100%); /* W3C */
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7d7e7d', endColorstr='#0e0e0e',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+		}
+		.trBorderCell
+		{
+			height: 30px;
+			width: 320px;
+			background: rgba(0,0,0,.6);
+			
+		}
+		
+		.margine
+		{
+			margin:0 auto;
+		}
+		
+		.arrotondamento
+		{
+			border-radius: 8px;
+			-moz-border-radius: 8px; /* firefox */
+			-webkit-border-radius: 8px; /* safari, chrome */
+		}
+		.custom-btn {
+			width: 280px;
+		}
+		
+		.custom-btn2 {
+			width: 280px;
+		}
+		
+		.custom-btn3 {
+			width: 100px;
+			height:40px;
+		}
+		.custom-btn4 {
+			width: 100px;
+			height:70px;
+		}
+		
+		.big { height: 80px;}
+		.big .ui-btn-inner { padding-top:25px; }
+		
+		table.tablesorter {
+			font-family:arial;
+			background-color: #f0f0f0;
+			margin:10px 0pt 15px;
+			font-size: 8pt;
+			width: 95%;
+			text-align: left;
+			border: 0px solid #FFF;
+			
+			border-radius: 5px;
+			-moz-border-radius: 5px; /* firefox */
+			-webkit-border-radius: 5px; /* safari, chrome */
+			
+		}
+		table.tablesorter thead tr th, table.tablesorter tfoot tr th {
+			background-color: #B40431;
+			border: 1px solid #FFF;
+			font-size: 8pt;
+			padding: 4px;
+			width: 55%;
+			
+			border-radius: 5px;
+			-moz-border-radius: 5px; /* firefox */
+			-webkit-border-radius: 5px; /* safari, chrome */
+			
+		}
+		table.tablesorter thead tr .header {
+			background-image: url(bg.gif);
+			background-repeat: no-repeat;
+			background-position: center right;
+			cursor: pointer;
+		}
+		table.tablesorter tbody td {
+			color: #B40431;
+			padding: 4px;
+			background-color: #FFF;
+			vertical-align: top;
+			
+		}
+		table.tablesorter tbody tr.odd td {
+			background-color:#000000;
+		}
+		table.tablesorter thead tr .headerSortUp {
+			background-image: url(asc.gif);
+		}
+		table.tablesorter thead tr .headerSortDown {
+			background-image: url(desc.gif);
+		}
+		table.tablesorter thead tr .headerSortDown, table.tablesorter thead tr .headerSortUp {
+			background-color: #B40431;
+			
+		}
+		
+		.home {
+			background-color: #9d3434;
+			background-image: url(img/minusW.png);
+			background-size: 26px 26px;
+			background-repeat: no-repeat;
+			background-position:center;
+			
+			height:28px;
+			width:28px;
+			border-radius:999em;
+			-moz-border-radius:999em;
+			-webkit-border-radius:999em;
+			-o-border-radius: 999em;
+			
+			-webkit-box-shadow: 0px 0px 0.5px 1px #FFF;
+			-moz-box-shadow: 0px 0px 0.5px 1px #FFF;
+			box-shadow: 0px 0px 0.5px 1px #FFF;
+		}
+		
+		.home1 {
+			background-color: #9d3434;
+			background-image: url(img/plusW.png);
+			background-size: 26px 26px;
+			background-repeat: no-repeat;
+			background-position:center;
+			
+			height:28px;
+			width:28px;
+			border-radius:999em;
+			-moz-border-radius:999em;
+			-webkit-border-radius:999em;
+			-o-border-radius: 999em;
+			
+			-webkit-box-shadow: 0px 0px 0.5px 1px #FFF;
+			-moz-box-shadow: 0px 0px 0.5px 1px #FFF;
+			box-shadow: 0px 0px 0.5px 1px #FFF;
+		}
+		
+		.home:active {
+			background-color: #000000;
+			border-radius:999em;
+			-moz-border-radius:999em;
+			-webkit-border-radius:999em;
+			-o-border-radius: 999em;
+			
+			-webkit-box-shadow: 0px 0px 0.5px 1px #000;
+			-moz-box-shadow: 0px 0px 0.5px 1px #000;
+			box-shadow: 0px 0px 0.5px 1px #000;
+		}
+		
+		.home1:active {
+			background-color:#000000;
+			border-radius:999em;
+			-moz-border-radius:999em;
+			-webkit-border-radius:999em;
+			-o-border-radius: 999em;
+			
+			-webkit-box-shadow: 0px 0px 0.5px 1px #000;
+			-moz-box-shadow: 0px 0px 0.5px 1px #000;
+			box-shadow: 0px 0px 0.5px 1px #000;
+		}
+
+.circolare {
+	width: 30px;
+	height: 30px;
+	border-radius:999em;
+	-moz-border-radius:999em;
+	-webkit-border-radius:999em;
+	-o-border-radius: 999em;
+	
+	-webkit-box-shadow: 0px 0px 0.5px 0.5px #000;
+	-moz-box-shadow: 0px 0px 0.5px 0.5px #000;
+	box-shadow: 0px 0px 0.5px 0.5px #000;
+}
+		
+
+		
+a {text-decoration:none;}
+
+.styled-select select {
+	background: transparent;
+	width: 268px;
+	padding: 5px;
+	font-size: 16px;
+	line-height: 1;
+	border: 0;
+	border-radius: 0;
+	height: 34px;
+	-webkit-appearance: none;
+}
+		
+		.banner {
+			left:110px;
+			bottom:20px;
+			position: fixed;
+			
+			margin-left: auto ;
+			margin-right: auto ;
+			
+		}
+		
+		hr.style-six {
+			border: 0;
+			height: 0;
+			border-top: 1px solid rgba(0, 0, 0, 0.1);
+			border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+		}
+		
+		.mynav .ui-select, .mynav .ui-btn {
+			margin-top: 0;
+			margin-bottom: 0;
+			margin-left: 2px;
+			margin-right: 2px !important;
+		}
+		.conn {
+			font-size: 9pt;
+			color:#FFF;
+			background-color: #FF8000;
+		}
+
+.badge1 {
+	position:relative;
+}
+		.badge1[data-badge]:after {
+			content:attr(data-badge);
+			position:absolute;
+			top:3px;
+			right:-1px;
+			font-size:.7em;
+			background:green;
+			color:white;
+			width:18px;height:18px;
+			text-align:center;
+			line-height:20px;
+			border-radius:50%;
+			box-shadow:0 0 1px #333;
+			border: 1px solid #fff;
+		}
+		.badge2 {
+			
+		}
+		.badge2[data-badge]:after {
+			
+		}
+		.badge3 {
+			position:relative;
+		}
+		.badge3[data-badge]:after {
+			content:attr(data-badge);
+			position:absolute;
+			top:-30px;
+			right:-15px;
+			font-size:.7em;
+			background:green;
+			color:white;
+			width:20px;height:20px;
+			text-align:center;
+			line-height:20px;
+			border-radius:50%;
+			box-shadow:0 0 1px #333;
+			border: 1px solid #fff;
+		}
+		.visione {
+			color:#000;
+			font-size: 9pt;
+			text-decoration: none;
+			text-shadow:0 0 0;
+		}
+		
+		.someClass b {
+			font-weight: normal;
+			text-decoration: none;
+			text-shadow:0 0 0;
+		}
+		
+		.someClass {
+			font-weight: normal;
+			text-decoration: none;
+			text-shadow:0 0 0;
+		}
+		.someClass2 {
+			font-weight: normal;
+			text-decoration: none;
+			text-shadow:0 0 0;
+			font-size: 18px;
+		}
+		
+		.btn {
+			background: #9f1e24;
+			background-image: -webkit-linear-gradient(top, #9f1e24, ##9f1e24);
+			background-image: -moz-linear-gradient(top, #9f1e24, ##9f1e24);
+			background-image: -ms-linear-gradient(top, #9f1e24, ##9f1e24);
+			background-image: -o-linear-gradient(top, #9f1e24, ##9f1e24);
+			background-image: linear-gradient(to bottom, #9f1e24, ##9f1e24);
+			-webkit-border-radius: 21;
+			-moz-border-radius: 21;
+			border-radius: 21px;
+			font-family: Arial;
+			color: #ffffff;
+			font-size: 24px;
+			padding: 10px 20px 10px 20px;
+			text-decoration: none;
+		}
+		
+		.btn:hover {
+			background: #000000;
+			background-image: -webkit-linear-gradient(top, #000000, #9f1e24);
+			background-image: -moz-linear-gradient(top, #000000, #9f1e24);
+			background-image: -ms-linear-gradient(top, #000000, #9f1e24);
+			background-image: -o-linear-gradient(top, #000000, #9f1e24);
+			background-image: linear-gradient(to bottom, #000000, #9f1e24);
+			text-decoration: none;
+		}
+		
+		.loghetto {
+			
+			border-radius:5px;
+			-moz-border-radius:5px;
+			-webkit-border-radius:5px;
+			-o-border-radius: 5px;
+			
+		}
+		
+		.div5 {
+			position: fixed;
+			z-index: 2;
+			bottom: 0;
+			right: 0;
+			width: 60%;
+			padding: 0;
+			color: #000;
+			
+			text-align: center;
+			
+		}
+		
+		.ui-overlay-a{
+			background: #fff;
+			background-repeat:no-repeat;
+			background-attachment:fixed;
+			/*background-position:center; */
+			background-position: right bottom; /*Positioning*/
+		}
+		.ui-overlay-b{
+			background: #fff;
+			background-repeat:no-repeat;
+			background-attachment:fixed;
+			/*background-position:center; */
+			background-position: right bottom; /*Positioning*/
+		}
+		.ui-overlay-c{
+			background: #fff;
+			background-repeat:no-repeat;
+			background-attachment:fixed;
+			/*background-position:center; */
+			background-position: right bottom; /*Positioning*/
+		}
+		.ui-overlay-d{
+			background: #fff;
+			background-repeat:no-repeat;
+			background-attachment:fixed;
+			/*background-position:center; */
+			background-position: right bottom; /*Positioning*/
+		}
+		.ui-overlay-e{
+			background: #fff;
+			background-repeat:no-repeat;
+			background-attachment:fixed;
+			/*background-position:center; */
+			background-position: right bottom; /*Positioning*/
+		}
+		
+		@font-face {
+			font-family: 'FUTURAB';
+			src: url('./FUTURAB.TTF');
+			src: local('./FUTURAB'), url('./FUTURAB.TTF') format('truetype');
+		}
+		
+		.carattere {
+			font-family: 'FUTURAB' !important;
+			
+			font-weight: normal;
+			text-decoration: none;
+			text-shadow:0 0 0;
+			font-size: 18px;
+		}
+		
+		
+		.Large {
+			font-size: 20pt;
+			height: 70px;
+		}
+		
+		</style>
+		
+    </head>
+    <body>
+		
+		<div id="page" data-role="page" class="div2" >
+			
+			<div id="header" data-role="header" data-theme="b" data-tap-toggle="false" class="div1">
+				<table align="center" width="100%" valign="center" border="0"><tr><td align="center" valign="center"><font  color="#4885ef" class="carattere" size="5.5">I Miei Lavori</font></td></tr></table>
+			</div>
+			<div class="spinner" id="spinner"></div>
+			
+			<div id="wrapper">
+				<div id="scroller">
+					<center>
+						
+						<center>
+							
+							<table id="formreg" align="center" width="320px">
+								<tr>
+									<td width="320px" align="left">
+										<div data-role="content"><center>Inserisci data lavoro</center></div>
+									</td>
+								</tr>
+								<tr>
+									<td width="320px" align="center">
+										<form name="formia" action="entra2.asp" method="post">
+											<input type="text" data-theme="c" name="operatore" id="operatore" value="" readonly placeholder="Operatore">
+											<input type="text" data-theme="c" name="data" id="data" value="" placeholder="Data">
+											<a href="javascript:lista();" id="#" data-role="button" class="custom-btn" data-theme="c">Trova</a>
+										</form>
+									</td>
+								</tr>
+								
+								
+								<tr>
+									<td width="320px" align="center">
+										<br>
+									</td>
+								</tr>
+								
+							</table>
+							
+						</center>
+
+					<br>
+					<table id="tabella" border='0' align='center' width='100%' style="display:none"><tr><td align='center' width='33%'><b>Data</b></td><td align='center'  width='33%'><b>Operatore</b></td><td align='center'  width='33%'><b>N.Volantini</b></td></tr><tr><td align='center' width='33%'><div id="dataa"></div></td><td align='center'  width='33%'><div id="operatorea"></div></td><td align='center'  width='33%'><div id="volantinia"></div></td></tr></table>
+					<hr>
+					<div id="contenuto"></div>
+					<br>
+					
+				</div>
+			</div>
+
+			<div id="footer" data-role="footer" data-theme="c" data-tap-toggle="false" class="div1" >
+				<div data-role="navbar" class="nav" data-grid="a" data-theme="c" class="div1">
+				<ul>
+					<li><a href="index.html" rel="external" id="programas" data-icon="userhome" ><font size="1">Schede</font></a></li>
+					<li><a href="lavori.html" rel="external" data-icon="pinhome"><font size="1">Lavori</font></a></li>
+				</ul>
+				</div>
+			</div>
+			
+
+		</div><!-- /page -->
+		
+		
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/lavori.js"></script>
+		
+        <script type="text/javascript">
+            app.initialize();
+        </script>
+		
+    </body>
+</html>
