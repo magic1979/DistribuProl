@@ -1,7 +1,7 @@
 document.addEventListener('deviceready', onDeviceReady, false);
 
 function onDeviceReady() {
-	//document.addEventListener("resume", onResume, false);
+	//document.addEventListener("resume", onResume, false);  cli-5.2.0
 	
 	last_click_time = new Date().getTime();
 	
@@ -42,8 +42,8 @@ function onDeviceReady() {
 		connectionStatus = navigator.onLine ? 'online' : 'offline';
 		
 		if(connectionStatus=='online'){
-			document.getElementById("email").value = "F10620"
-			document.getElementById("password").value = "ivQ0MQ4N"
+			//document.getElementById("email").value = "F10620"
+			//document.getElementById("password").value = "ivQ0MQ4N"
 			
 		}
 		else{
@@ -94,28 +94,9 @@ function login() {
 		return;
 	}
 	
-	/*EmailAddr = self.document.formia2.email.value;
-	Filtro = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-]{2,})+\.)+([a-zA-Z0-9]{2,})+$/;
-	if (Filtro.test(EmailAddr)) {
-	 
-	 F10620
-	 ivQ0MQ4N
-		
-	}
-	else {
-		navigator.notification.alert(
-									 'Caratteri email non consentiti',  // message
-									 alertDismissed,         // callback
-									 'Email',            // title
-									 'OK'                  // buttonName
-									 );
-		return;
-	}*/
 	
 	var newpin = sha1(pin2);
 	
-	//alert(newpin)
-
 	LoginVera(email2,newpin);
 	
 }

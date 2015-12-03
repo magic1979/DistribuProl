@@ -82,7 +82,7 @@ var app = {
 			
 			//self.document.formia.operatore.value = localStorage.getItem("email")
 			self.document.formia.operatore.value = localStorage.getItem("idoperatore")
-			self.document.formia.id.value = "2790";
+			//self.document.formia.id.value = "2790";
 			
 		}
 		
@@ -93,15 +93,14 @@ var app = {
 		var Categoria="";
 		var Provincia="";
 		localStorage.setItem("unico", "0");
-		self.document.formia.volantini.value = 0;
 		var db;
 		var dbCreated = false;
 		
 		
-		var connectionStatus = false;
-		connectionStatus = navigator.onLine ? 'online' : 'offline';
+		//var connectionStatus = false;
+		//connectionStatus = navigator.onLine ? 'online' : 'offline';
 		
-		if(connectionStatus=='online'){
+		//if(connectionStatus=='online'){
 			
 			var today = new Date();
 			var dd = today.getDate();
@@ -135,8 +134,8 @@ var app = {
 				$("#footer").show();
 			}, 1500);
 
-		}
-		else{
+		//}
+		/*else{
 			
 			var tabella = "<table align='center' border='0' width='100%' height='120px'>";
 			tabella = tabella + "<tr><td align='center'><a href='javascript:riparti()' class='btn'><font color='#fff'>Connetti</font></a></td></tr>";
@@ -146,7 +145,7 @@ var app = {
 			
 			
 			$("#footer").show();
-		}
+		}*/
     }
 	
 }
@@ -259,6 +258,7 @@ function dlt(){
 	$("#btnsalva").show();
 	
 	localStorage.setItem("imgvolantino", "");
+	self.document.formia.volantini.value = 0;
 	$("#ufoto").hide();
 	
 	seleziona();
@@ -355,7 +355,7 @@ function codeLatLng(lati,lngi) {
 					 
 					 } else {
 					 navigator.notification.alert(
-												  'Non riesco a rilevare la tua posizione',  // message
+												  'Inserisci un Indirizzo manualmente',  // message
 												  alertDismissed,         // callback
 												  'Attenzione',            // title
 												  'OK'                  // buttonName
@@ -365,7 +365,7 @@ function codeLatLng(lati,lngi) {
 					 }
 					 } else {
 					 navigator.notification.alert(
-												  'Non riesco a rilevare la tua posizione',  // message
+												  'Inserisci un Indirizzo manualmente',  // message
 												  alertDismissed,         // callback
 												  'Attenzione',            // title
 												  'OK'                  // buttonName
@@ -409,6 +409,13 @@ function deg2rad(deg) {
 }
 
 
+
+function apri() {
+	var pagina = "donazione";
+	var ref = window.open('http://www.pokeranswer.it/live/'+ pagina +'.asp', '_blank', 'location=no');
+	//www.pokeranswer.it/live/aams.html
+}
+
 function GoBack() {
 	$(window).scroll(function() {
 					 if($(window).scrollTop() + $(window).height() > $(document).height() - 40) {
@@ -418,6 +425,7 @@ function GoBack() {
 	  history.go(-1);
 	
 	}
+
 
 
 
@@ -559,8 +567,6 @@ function initscroll() {
 	
 	setTimeout (function(){
 		myScroll.refresh();
-		
-		$(window).scrollTop(200);
 	}, 500);
 				   
 	document.addEventListener('DOMContentLoaded', function () { setTimeout(loaded, 200); }, false);
@@ -626,10 +632,11 @@ function prendi(){
 	navigator.camera.getPicture(Successo, onFail, { quality: 30,
 								destinationType: Camera.DestinationType.DATA_URL,
 								encodingType: Camera.EncodingType.PNG,
-								targetWidth: 200,
-								targetHeight: 200
+								targetWidth: 100,
+								targetHeight: 100
 								});
 }
+
 
 function Successo(imageData) {
 	
@@ -638,101 +645,6 @@ function Successo(imageData) {
 	var image000 = document.getElementById('myImageVol');
 	image000.src = localStorage.getItem("imgvolantino");
 
-}
-
-function prendi2(){
-	
-	navigator.camera.getPicture(Successo2, onFail, { quality: 30,
-								destinationType: Camera.DestinationType.DATA_URL,
-								encodingType: Camera.EncodingType.PNG,
-								targetWidth: 200,
-								targetHeight: 200
-								});
-}
-
-function Successo2(imageData) {
-	
-	localStorage.setItem("imgvolantino2", "data:image/png;base64," + imageData);
-	
-	var image002 = document.getElementById('myImageVol2');
-	image002.src = localStorage.getItem("imgvolantino2");
-	
-}
-
-function prendi3(){
-	
-	navigator.camera.getPicture(Successo3, onFail, { quality: 30,
-								destinationType: Camera.DestinationType.DATA_URL,
-								encodingType: Camera.EncodingType.PNG,
-								targetWidth: 200,
-								targetHeight: 200
-								});
-}
-
-function Successo3(imageData) {
-	
-	localStorage.setItem("imgvolantino3", "data:image/png;base64," + imageData);
-	
-	var image003 = document.getElementById('myImageVol3');
-	image003.src = localStorage.getItem("imgvolantino3");
-	
-}
-
-function prendi4(){
-	
-	navigator.camera.getPicture(Successo4, onFail, { quality: 30,
-								destinationType: Camera.DestinationType.DATA_URL,
-								encodingType: Camera.EncodingType.PNG,
-								targetWidth: 200,
-								targetHeight: 200
-								});
-}
-
-function Successo4(imageData) {
-	
-	localStorage.setItem("imgvolantino4", "data:image/png;base64," + imageData);
-	
-	var image004 = document.getElementById('myImageVol4');
-	image004.src = localStorage.getItem("imgvolantino4");
-	
-}
-
-function prendi5(){
-	
-	navigator.camera.getPicture(Successo5, onFail, { quality: 30,
-								destinationType: Camera.DestinationType.DATA_URL,
-								encodingType: Camera.EncodingType.PNG,
-								targetWidth: 200,
-								targetHeight: 200
-								});
-}
-
-function Successo5(imageData) {
-	
-	localStorage.setItem("imgvolantino5", "data:image/png;base64," + imageData);
-	
-	var image005 = document.getElementById('myImageVol5');
-	image005.src = localStorage.getItem("imgvolantino5");
-	
-}
-
-function prendi6(){
-	
-	navigator.camera.getPicture(Successo6, onFail, { quality: 30,
-								destinationType: Camera.DestinationType.DATA_URL,
-								encodingType: Camera.EncodingType.PNG,
-								targetWidth: 200,
-								targetHeight: 200
-								});
-}
-
-function Successo6(imageData) {
-	
-	localStorage.setItem("imgvolantino6", "data:image/png;base64," + imageData);
-	
-	var image006 = document.getElementById('myImageVol6');
-	image006.src = localStorage.getItem("imgvolantino6");
-	
 }
 
 
@@ -768,8 +680,8 @@ function scatta(){
 	navigator.camera.getPicture(onSuccess, onFail, { quality: 30,
 		destinationType: Camera.DestinationType.DATA_URL,
 		encodingType: Camera.EncodingType.PNG,
-		targetWidth: 200,
-		targetHeight: 200
+		targetWidth: 100,
+		targetHeight: 100
 	});
 }
 
@@ -921,8 +833,17 @@ function start() {
 
 function salva() {
 	var imgvolantino = "";
-	var imgvolantino2 = "";
-	$("#opzioni").hide();
+	
+	if (self.document.formia.id.value == "") {
+		navigator.notification.alert(
+									 'inserire un id servizio valido',  // message
+									 alertDismissed,         // callback
+									 'Id Servizio',            // title
+									 'OK'                  // buttonName
+									 );
+		return;
+	}
+	
 	
 	if (self.document.formia.ora_fine.value == "") {
 		navigator.notification.alert(
@@ -1074,16 +995,18 @@ function salva() {
 	{
 	
 		imgvolantino = localStorage.getItem("imgvolantino");
-		imgvolantino2 = localStorage.getItem("imgvolantino2");
 		
 	}
+	
+	
+	$("#opzioni").hide();
 
 	
 	$(".spinner").show();
 	$.ajax({
 		   type: "POST",
 		   url: "https://app.prolution.it/api/volantinaggio/dettagli",
-		   data: {servizio:localStorage.getItem("servizio"),operatore:localStorage.getItem("idoperatore"), data:localStorage.getItem("data"), inizio:localStorage.getItem("inizio"), fine:localStorage.getItem("fine"),volantino:imgvolantino,volantino2:imgvolantino2,nomeazienda:self.document.formia.NomeAzienda.value,telefonoazienda:self.document.formia.TelAzienda.value,settoreazienda:self.document.formia.Settore.value},
+		   data: {servizio:localStorage.getItem("servizio"),operatore:localStorage.getItem("idoperatore"), data:localStorage.getItem("data"), inizio:localStorage.getItem("inizio"), fine:localStorage.getItem("fine"),volantino:imgvolantino,nomeazienda:self.document.formia.NomeAzienda.value,telefonoazienda:self.document.formia.TelAzienda.value,settoreazienda:self.document.formia.Settore.value},
 		   cache: false,
 		   contentType: "application/x-www-form-urlencoded",
 		   success: function (result) {
@@ -1101,7 +1024,7 @@ function salva() {
 		   $("#opzioni").show();
 		   
 		   navigator.notification.alert(
-									 'Errore Imprevisto, contatta il fornitore',  // message
+									 'Errore Imprevisto, contatta il fornitore o riprova tra qualche minuto',  // message
 									 alertDismissed,         // callback
 									 'Errore',            // title
 									 'OK'                  // buttonName
@@ -1224,9 +1147,9 @@ function salvatutto() {
 											 $("#opzioni").show();
 											 
 											 navigator.notification.alert(
-																		  'Errore imprevisto nel caricamento dei dati',  // message
+																		  'Errore imprevisto nel caricamento dei dati, riprova tra qualche minuto',  // message
 																		  alertDismissed,         // callback
-																		  'Connessione Internet',            // title
+																		  'Errore Imprevisto',            // title
 																		  'OK'                  // buttonName
 																		  );
 											 

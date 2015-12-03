@@ -30,7 +30,7 @@
 		<link rel="stylesheet" href="font.css">
 			
 		<link rel="stylesheet" href="themes/jquery.mobile.structure-1.4.2.min.css" />
-		<link rel="stylesheet" href="themes/BetaApp.css" />
+		<link rel="stylesheet" href="themes/Servizi.css" />
 		<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
 		<link rel="stylesheet" href="css/spinner.css" />
 		<link rel="stylesheet" href="css/app-reset.css" />
@@ -202,6 +202,7 @@
 				background-color: #f0f0f0;
 				height: 52px;
 				border: none;
+				
 			}
 		
 			.div2 {
@@ -246,19 +247,32 @@
 		}
 		.custom-btn {
 			width: 280px;
+			background-color: #4885ef;
+		}
+		
+		.custom-btn22 {
+			width: 280px;
 		}
 		
 		.custom-btn2 {
-			width: 280px;
+			width: 150px;
+			background-color: #4885ef;
 		}
 		
 		.custom-btn3 {
 			width: 100px;
 			height:40px;
+			background-color: #4885ef;
 		}
 		.custom-btn4 {
 			width: 100px;
 			height:70px;
+			background-color: #4885ef;
+		}
+		
+		.custom-btn5 {
+			width: 100px;
+			background-color: #4885ef;
 		}
 		
 		.big { height: 80px;}
@@ -610,6 +624,12 @@ a {text-decoration:none;}
 			height: 70px;
 		}
 		
+		.scrivo {
+			font-family: sans-serif;
+			font-size: 20px;
+			appearance: none;
+			box-shadow: none;
+		}
 		</style>
 		
 		<script src="https://maps.googleapis.com/maps/api/js?v=3.6exp&sensor=true"></script>
@@ -630,32 +650,53 @@ a {text-decoration:none;}
 					 <form name="formia" action="entra.asp" method="post">
 						 
 					<table width="320px" border="0">
-					<tr><td colspan="3"><table><tr><td width="60%"><table width="100%" border="0">
-					<tr><td width="40%">ID SERVIZIO</td><td colspan="2" width="60%"><input type="text" data-theme="a" name="id" id="id" value="" placeholder="id servizio"></td></tr>
-					<tr><td width="40%">OPERATORE</td><td colspan="2" width="60%"><input type="text" data-theme="a" name="operatore" id="operatore" value="" placeholder="operatore"></td></tr>
-					<tr><td width="40%">DATA</td><td colspan="2" width="60%"><input type="text" data-theme="a" name="data" id="data" value="" placeholder="data"></td></tr>
-					<tr><td width="40%">ORA INIZIO</td><td colspan="2" width="60%"><input type="text" data-theme="a" name="ora" id="ora" value="" placeholder="ora"></td></tr>
-					<tr><td width="40%">ORA FINE</td><td colspan="2" width="60%"><input type="text" data-theme="a" name="ora_fine" id="ora_fine" value="" placeholder="ora_fine"></td></tr>
-					<tr><td width="40%">VOLANTINI DIST.</td><td colspan="2" width="60%" align="left"><input type="text" data-theme="a" name="volantini" id="volantini" value="" placeholder="volantini"></table></td>
-					<td width="40%" align="center" valign="center">
-						<img src="img/vol1.png" id="myImageVol" width="100px"><br>
-						<input type="text" data-theme="a" name="NomeAzienda" id="NomeAzienda" value="" placeholder="Nome Azineda">
-						<input type="text" data-theme="a" name="TelAzienda" id="TelAzienda" value="" placeholder="Tel. Azineda">
-						<input type="text" data-theme="a" name="Settore" id="Settore" value="" placeholder="Settore">
-					</td>
+					<tr>
+						<td colspan="3">
+							<table>
+								<tr>
+									<td width="100%">
+										<table width="100%" border="0">
+											<tr>
+												<td width="50%"><input type="text" data-theme="a" name="id" id="id" value="" placeholder="id servizio" class="scrivo"></td>
+												<td width="50%"><input type="text" data-theme="a" name="operatore" id="operatore" value="" placeholder="operatore" class="scrivo"></td>
+											</tr>
+											<tr>
+												<td colspan="4" width="75%"><input type="text" data-theme="a" name="data" id="data" value="" placeholder="data" class="scrivo"></td>
+											</tr>
+											<tr>
+												<td width="50%"><input type="text" data-theme="a" name="ora" id="ora" value="" placeholder="ora" class="scrivo"></td>
+												<td width="50%"><input type="text" data-theme="a" name="ora_fine" id="ora_fine" value="" placeholder="ora_fine" class="scrivo"></td>
+											</tr>
+											<tr>
+												<td colspan="4" width="75%" align="left"><input type="text" data-theme="a" name="volantini" id="volantini" value="" placeholder="volantini dist." class="scrivo"></td>
+											</tr>
+											<tr>
+												<td width="50%"><input type="text" data-theme="a" name="NomeAzienda" id="NomeAzienda" value="" placeholder="Nome Azienda" class="scrivo"></td>
+												<td width="50%"><input type="text" data-theme="a" name="Settore" id="Settore" value="" placeholder="Settore" class="scrivo"></td>
+											</tr>
+											<tr>
+												<td colspan="4"><input type="text" data-theme="a" name="TelAzienda" id="TelAzienda" value="" placeholder="Tel. Azienda" class="scrivo">
+												</td>
+											</tr>
+											<tr>
+												
+											</tr>
+
+										</table></td>
+		
 					</tr>
 					</table>
 					</td></tr>
 					
 					<tr><td colspan="3"><br></td></td><tr>
 					
-					<tr><td colspan="3"><a href="javascript:vedivia()" id="" data-role="button" class="custom-btn3" data-theme="c">Nuova Via</a></td></td><tr>
+					<tr><td colspan="3"><a href="javascript:vedivia()" id="" data-role="button" data-theme="b" class="custom-btn2"><font size="5" color="#fff">Nuova Via</font></a></td></td><tr>
 					<tr id="viale" style="display:none"><td colspan="3" align="left" colspan="3"><input type="text" data-theme="c" name="via" id="via" value="" placeholder="via"></td></td><tr>
-					<tr id="civiccia1" style="display:none"><td colspan="3"><a href="javascript:vedicivico()" id="#" data-role="button" class="custom-btn3" data-theme="c">+ Civico</a></td></td><tr>
+					<tr id="civiccia1" style="display:none"><td colspan="3"><a href="javascript:vedicivico()" id="#" data-role="button" class="custom-btn3" data-theme="b"><font size="5" color="#fff">+ Civico</font></a></td></td><tr>
 						<tr id="civiccia" style="display:none">
 							<td width="25%" valign="top"><input type="text" data-theme="a" name="civico" id="civico" value="" placeholder="civico" class="Large"></td>
 							<td width="35%" valign="top"><input class="Large" type="text" data-theme="a" name="nvolantini" id="nvolantini" value="" placeholder="N."></td>
-							<td width="40%" valign="top"><a valign="center" data-role="button" class="custom-btn4" data-theme="a" href="javascript:scatta()"><font size="4">FOTO</font></a><br></td>
+							<td width="40%" valign="top"><a valign="center" data-role="button" data-theme="b" class="custom-btn4"  href="javascript:scatta()"><font size="5" color="#fff">FOTO</font></a><br></td>
 						</tr>
 						<tr>
 							<td width="30%" align="center"><p id="ufoto" style="display:none">Ultima Foto</p></td><td width="70%" align="center" height="100px" colspan="2"><img src="" id="myImage" width="100px"></td>
@@ -672,7 +713,7 @@ a {text-decoration:none;}
 					<div id="contenuto"></div>
 					<br>
 					<center>
-					<a href="javascript:salva()" id="btnsalva" data-role="button" class="custom-btn" data-theme="c" class="carattere">>> Carica Tutto OnLine <<</a><a href="javascript:dlt()" id="btncancella" data-role="button" class="custom-btn" data-theme="b" class="carattere" style="display:none">>> Cancella Dati <<</a><br>
+					<a href="javascript:salva()" id="btnsalva" data-role="button" class="custom-btn" data-theme="b" class="carattere" <font size="4" color="#fff">>>> Carica Tutto OnLine <<</font></a><a href="javascript:dlt()" id="btncancella" data-role="button" class="custom-btn22" data-theme="b" class="carattere" style="display:none">X Cancella Tutto X</a><br>
 					</center>
 				</div>
 			</div>
@@ -703,10 +744,10 @@ a {text-decoration:none;}
 				</table>
 			</div>
 			
-			<div id="footer" data-role="footer" data-theme="c" data-tap-toggle="false" data-position="fixed" class="div1" style="display:none">
+			<div id="footer" data-role="footer" data-theme="c" data-tap-toggle="false" data-position="fixed" class="div1">
 				<div id="opzioni" data-role="navbar" class="nav" data-grid="a" data-theme="c" class="div1">
 					<ul>
-						<li><a href="javascript:prendi()" id="programas" data-icon="userhome" rel="external" ><font size="1">Carica Volantino</font></a></li>
+						<li><a href="#page2" id="programas" data-icon="userhome" rel="external" ><font size="1">Carica Volantini</font></a></li>
 						<li><a id="altrobtn" href="#mypanelH" onclick="javascript:rati()" data-icon="pinhome"><font size="1">Altro</font></a></li>
 						
 					</ul>
@@ -716,6 +757,41 @@ a {text-decoration:none;}
 		</div><!-- /page -->
 		
 		
+		<div id="page2" data-role="page" >
+			
+			<div id="header" data-role="header" data-theme="b" data-tap-toggle="false" data-position="fixed" class="div1">
+				<table align="center" width="100%" valign="center" border="0"><tr><td align="center" valign="center"><!--<img src="img/image3017.png" width="150px" height="36px">class="fontsforweb_fontid_2802"--><font  color="#4885ef" class="carattere" size="5.5">Carica Volantini</font></td></tr></table>
+			</div>
+			
+			<div class="spinner" id="spinner"></div>
+			
+			<center>
+			<form name="formia2" action="entra.asp" method="post">
+						 
+						 <table width="100%" border="0"><tr><td>
+							 <table width="100%" border="0" align="center">
+								 <tr><td align="center"><img src="img/vol1.png" id="myImageVol" height="90px"></td><td align="center"><img src="img/vol1.png" id="myImageVol2" height="90px"></td></tr>
+								 <tr><td align="center"><a id="radio" href="javascript:prendi()" data-role="button" data-theme="b" class="custom-btn5" rel="external">Carica</a></td><td align="center"><a id="radio" href="javascript:prendi2()" data-role="button" data-theme="b" class="custom-btn5" rel="external">Carica</a></td></tr>
+								 <tr><td align="center"><img src="img/vol1.png" id="myImageVol3" height="90px"></td><td align="center"><img src="img/vol1.png" id="myImageVol4" height="90px"></td></tr>
+								 <tr><td align="center"><a id="radio" href="javascript:prendi3()" data-role="button" data-theme="b" class="custom-btn5" rel="external">Carica</a></td><td align="center"><a id="radio" href="javascript:prendi4()" data-role="button" data-theme="b" class="custom-btn5" rel="external">Carica</a></td></tr>
+								 <tr><td align="center"><img src="img/vol1.png" id="myImageVol5" height="90px"></td><td align="center"><img src="img/vol1.png" id="myImageVol6" height="90px"></td></tr>
+								 <tr><td align="center"><a id="radio" href="javascript:prendi5()" data-role="button" data-theme="b" class="custom-btn5" rel="external">Carica</a></td><td align="center"><a id="radio" href="javascript:prendi6()" data-role="button" data-theme="b" class="custom-btn5" rel="external">Carica</a></td></tr>
+							</table>
+						</td></tr></table>
+			</form>
+			
+			<div data-role="footer" align="center" data-theme="c" data-position="fixed" data-tap-toggle="false" class="div1">
+				<table id="idfooter4" width="100%" align="center">
+					<tr>
+						<td width="100px" align="left">
+							<a href="#page" rel="external" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-home">Home</a>
+						</td>
+					</tr></table>
+			</div><!-- /footer6 -->
+			
+			</div><!-- /page -->
+
+
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
 		
