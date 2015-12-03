@@ -283,6 +283,25 @@ function dlt(){
 	$("#btnsalva").show();
 	
 	localStorage.setItem("imgvolantino", "");
+	localStorage.setItem("imgvolantino2", "");
+	localStorage.setItem("imgvolantino3", "");
+	localStorage.setItem("imgvolantino4", "");
+	localStorage.setItem("imgvolantino5", "");
+	localStorage.setItem("imgvolantino6", "");
+	
+	var image001 = document.getElementById('myImageVol');
+	image001.src = "img/vol1.png";
+	var image002 = document.getElementById('myImageVol2');
+	image002.src = "img/vol1.png";
+	var image003 = document.getElementById('myImageVol3');
+	image003.src = "img/vol1.png";
+	var image004 = document.getElementById('myImageVol4');
+	image004.src = "img/vol1.png";
+	var image005 = document.getElementById('myImageVol5');
+	image005.src = "img/vol1.png";
+	var image006 = document.getElementById('myImageVol6');
+	image006.src = "img/vol1.png";
+	
 	$("#ufoto").hide();
 	
 	seleziona();
