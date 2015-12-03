@@ -24,6 +24,21 @@ var app = {
     // Update DOM on a Received Event
     receivedEvent: function(id) {
 		
+		 $(document).on("touchmove", function(e){
+			$('#via').blur();
+			$('#civico').blur();
+			$('#nvolantini').blur();
+			$('#data').blur();
+			$('#ora').blur();
+			$('#ora_fine').blur();
+			$('#volantini').blur();
+			$('#NomeAzienda').blur();
+			$('#Settore').blur();
+			$('#TelAzienda').blur();
+
+			cordova.plugins.Keyboard.close();
+		 });
+		
 
 		last_click_time = new Date().getTime();
 		
@@ -58,7 +73,6 @@ var app = {
 			});
 		
 
-		
 		var idoperatore = localStorage.getItem("idoperatore");
 		var loginvera = localStorage.getItem("loginvera");
 		
@@ -614,6 +628,8 @@ function vedivia(){
 	$("#viale").show();
 	$("#civiccia1").show();
 	
+	myScroll.scrollToElement("#via", "1s");
+	
 }
 
 function vedicivico(){
@@ -624,7 +640,7 @@ function vedicivico(){
 	//initscroll()
 	myScroll.refresh();
 	
-	 $(window).scrollTop(200);
+	myScroll.scrollToElement("#civico", "1s");
 	
 	//myScroll.scrollTo(0, myScroll.maxScrollY, 0);
 }
