@@ -213,10 +213,20 @@ function seleziona() {
 					 }, null);
 				   
 				   
+				   $('#via').blur();
+				   $('#civico').blur();
+				   $('#nvolantini').blur();
+				   $('#data').blur();
+				   $('#ora').blur();
+				   $('#ora_fine').blur();
+				   $('#volantini').blur();
+				   $('#NomeAzienda').blur();
+				   $('#Settore').blur();
+				   $('#TelAzienda').blur();
+					 
 				   initscroll()
 				   
 		});
-	
 	
 	
 	/*db2.transaction(function (tx2) {
@@ -560,7 +570,7 @@ function initscroll() {
 	setTimeout (function(){
 		myScroll.refresh();
 		
-		$(window).scrollTop(200);
+		myScroll.scrollToElement("#segna", "1s");
 	}, 500);
 				   
 	document.addEventListener('DOMContentLoaded', function () { setTimeout(loaded, 200); }, false);
@@ -931,6 +941,8 @@ function salva() {
 									 'Orario',            // title
 									 'OK'                  // buttonName
 									 );
+								 
+		 $('#ora_fine').focus();
 		return;
 	}
 	
@@ -951,6 +963,7 @@ function salva() {
 									 'Tel. Azienda',            // title
 									 'OK'                  // buttonName
 									 );
+		$('#TelAzienda').focus();
 		return;
 	}
 	
@@ -961,6 +974,7 @@ function salva() {
 									 'Settore',            // title
 									 'OK'                  // buttonName
 									 );
+		$('#Settore').focus();
 		return;
 	}
 	
