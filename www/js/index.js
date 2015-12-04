@@ -998,7 +998,7 @@ function start() {
 function salva() {
 	var imgvolantino = "";
 	var imgvolantino2 = "";
-	$("#opzioni").hide();
+	//$("#opzioni").hide();
 	
 	if (self.document.formia.ora_fine.value == "") {
 		navigator.notification.alert(
