@@ -12,7 +12,6 @@
 		<preference name="phonegap-version" value="3.7.0" />
 		<preference name="orientation" value="portrait" />
 		<preference name="android-windowSoftInputMode" value="stateVisible|adjustResize" />
-		<preference name="fullscreen" value="true" />
 		<preference name="target-device" value="universal" />
 		<preference name="fullscreen" value="false" />
 		<preference name="webviewbounce" value="true" />
@@ -31,7 +30,7 @@
 		<preference name="KeyboardDisplayRequiresUserAction" value="true" />
 		<preference name="HideKeyboardFormAccessoryBar" value="true" />
 		<preference name="SuppressesIncrementalRendering" value="true" />
-		<preference name="android-minSdkVersion" value="11" />
+		<preference name="android-minSdkVersion" value="3" />
 		<preference name="android-targetSdkVersion" value="11" />
 		<preference name="android-installLocation" value="auto" />
 		<preference name="SplashScreenDelay" value="5000" />

@@ -24,6 +24,19 @@ var app = {
     // Update DOM on a Received Event
     receivedEvent: function(id) {
 		
+			$('#NomeAzienda').focus(function(){
+				myScroll.scrollToElement("#NomeAzienda", "1s");
+			});
+			
+			$('#Settore').focus(function(){
+				myScroll.scrollToElement("#Settore", "1s");
+			});
+			
+			$('#TelAzienda').focus(function(){
+				myScroll.scrollToElement("#TelAzienda", "1s");
+			});
+			
+			
 		 $(document).on("touchmove", function(e){
 			$('#via').blur();
 			$('#civico').blur();
@@ -38,7 +51,7 @@ var app = {
 
 			cordova.plugins.Keyboard.close();
 		 });
-		
+		 
 
 		last_click_time = new Date().getTime();
 		
@@ -68,9 +81,9 @@ var app = {
 			$('header, footer').css('position', 'fixed');
 			//force page redraw to fix incorrectly positioned fixed elements
 			setTimeout( function() {
-        window.scrollTo( $.mobile.window.scrollLeft(), $.mobile.window.scrollTop() );
-					   }, 20 );
-			});
+				window.scrollTo( $.mobile.window.scrollLeft(), $.mobile.window.scrollTop() );
+			}, 20 );
+		});
 		
 
 		var idoperatore = localStorage.getItem("idoperatore");
