@@ -612,6 +612,24 @@ function initscroll() {
 
 }
 
+function initscroll2() {
+	
+	myScroll = new IScroll('#wrapper', { click: true });
+	
+	setTimeout (function(){
+		myScroll.refresh();
+		
+		myScroll.scrollToElement("#segna", "1s");
+		$("#btnVia").click();
+
+	}, 1000);
+				   
+	document.addEventListener('DOMContentLoaded', function () { setTimeout(loaded, 200); }, false);
+				   
+	document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+
+}
+
 function uscire(){
 localStorage.setItem("loginvera", "")
 localStorage.setItem("email", "")
