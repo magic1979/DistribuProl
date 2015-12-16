@@ -122,6 +122,17 @@
 			background: #fff;
 			overflow: hidden;
 		}
+      
+      #wrapper2 {
+			position: absolute;
+			z-index: 1;
+			top: 60px;
+			bottom: 48px;
+			left: 0;
+			width: 100%;
+			background: #fff;
+			overflow: hidden;
+		}
 		
 		#scroller {
 			position: absolute;
@@ -653,10 +664,10 @@ a {text-decoration:none;}
 					<center>
 					 <form name="formia" action="entra.asp" method="post">
 						 
-					<table width="320px" border="0">
+					<table width="320px" border="0" id="tutto">
 					<tr>
 						<td colspan="3">
-							<table>
+							<table id="dati">
 								<tr>
 									<td width="100%">
 										<table width="100%" border="0">
@@ -668,27 +679,39 @@ a {text-decoration:none;}
 												<td colspan="4" width="75%"><input type="text" data-theme="a" name="data" id="data" value="" placeholder="data" class="scrivo"></td>
 											</tr>
 											<tr>
-												<td width="50%"><input type="text" data-theme="a" name="ora" id="ora" value="" placeholder="ora" class="scrivo"></td>
-												<td width="50%"><input type="text" data-theme="a" name="ora_fine" id="ora_fine" value="" placeholder="ora_fine" class="scrivo"></td>
+												<td width="50%">Ora Inizio</td>
+												<td width="50%"><input type="text" data-theme="a" name="ora" id="ora" value="" placeholder="ora" class="scrivo">
+                                                    <!--<input type="text" data-theme="a" name="ora_fine" id="ora_fine" value="" placeholder="ora_fine" class="scrivo">--></td>
 											</tr>
 											<tr>
-												<td colspan="4" width="75%" align="left"><input type="text" data-theme="a" name="volantini" id="volantini" value="" placeholder="volantini dist." class="scrivo"></td>
+												<td colspan="4" width="75%" align="left"><input type="text" data-theme="a" name="volantini" id="volantini" value="" placeholder="volantini dist." class="scrivo" readonly></td>
 											</tr>
-											<tr>
-												<td width="50%"><input type="text" data-theme="a" name="NomeAzienda" id="NomeAzienda" value="" placeholder="Nome Azienda" class="scrivo"></td>
-												<td width="50%"><input type="text" data-theme="a" name="Settore" id="Settore" value="" placeholder="Settore" class="scrivo"></td>
-											</tr>
-											<tr>
-												<td colspan="4"><input type="text" data-theme="a" name="TelAzienda" id="TelAzienda" value="" placeholder="Tel. Azienda" class="scrivo">
-												</td>
-											</tr>
+
 											<tr>
 												
 											</tr>
 
-										</table></td>
-		
+										</table>
+                                    </td>
+
 					</tr>
+					</table>
+					</td></tr>
+					
+					<tr><td colspan="3"><br></td></td><tr>
+					
+					<tr><td colspan="3"><a href="javascript:vedivia()" id="" data-role="button" data-theme="b" class="custom-btn2"><font size="5" color="#fff">Nuova Via</font></a></td></td><tr>
+					<tr id="viale" style="display:none"><td colspan="3" align="left" colspan="3"><input type="text" data-theme="c" name="via" id="via" value="" placeholder="via"></td></td><tr>
+					<tr id="civiccia1" style="display:none"><td colspan="3"><a href="javascript:vedicivico()" id="#" data-role="button" class="custom-btn3" data-theme="b"><font size="5" color="#fff">+ Civico</font></a></td></td><tr>
+						<tr id="civiccia" style="display:none">
+							<td width="25%" valign="top"><input type="text" data-theme="a" name="civico" id="civico" value="" placeholder="civico" class="Large"></td>
+							<td width="35%" valign="top"><input class="Large" type="text" data-theme="a" name="nvolantini" id="nvolantini" value="" placeholder="N."></td>
+							<td width="40%" valign="top"><a id="segna" valign="center" data-role="button" data-theme="b" class="custom-btn4"  href="javascript:scatta()"><font size="5" color="#fff">FOTO</font></a><br></td>
+						</tr>
+						<tr>
+							<td width="30%" align="center"><p id="ufoto" style="display:none">Ultima Foto</p></td><td width="70%" align="center" height="100px" colspan="2"><img src="" id="myImage" width="100px"></td>
+						</tr>
+					
 					</table>
 					</td></tr>
 					
@@ -707,17 +730,43 @@ a {text-decoration:none;}
 						</tr>
 					
 					</table>
+
+                    <table id="ultimatbl" width="100%" border="0"  style="display:none">
+                        <tr>
+							<td width="50%">Ora Fine</td>
+							<td width="50%"><input type="text" data-theme="a" name="ora_fine" id="ora_fine" value="" placeholder="ora_fine" class="scrivo"></td>
+					    </tr>
+						<tr>
+							<td colspan="2" width="75%" align="left"><input type="text" data-theme="a" name="volantini" id="volantini" value="" placeholder="volantini dist." class="scrivo" readonly></td>
+					    </tr>
+						<tr>
+												
+						</tr>
+                    </table>
 					
 					<input type="hidden" name="Lati" id="Lati" value="">
 					<input type="hidden" name="Longi" id="Longi" value="">
 					<!--<div id="noconn" align="center"><a href='javascript:riparti()' class='btn'><font color='#fff'>Connetti</font></a></div>-->
 					</center>
 					</form>
+
 					<br>
 					<div id="contenuto"></div>
+
 					<br>
 					<center>
-					<a href="javascript:salva()" id="btnsalva" data-role="button" class="custom-btn" data-theme="b" class="custom-btn2"> <font size="5" color="#fff">>> Carica Tutto OnLine <<</font></a><a href="javascript:dlt()" id="btncancella" data-role="button" class="custom-btn22" data-theme="b" class="custom-btn2" style="display:none"><font size="5" color="#fff">X Cancella Tutto X</font></a><br>
+
+                    <a href="javascript:salvalavoro()" id="btnavanti" data-role="button" class="custom-btn" data-theme="b" class="custom-btn2"> <font size="5" color="#fff"  style="display:none">>> Salva Lavoro <<</font></a>
+
+                    <a href="javascript:indietrovia()" id="btnavanti" data-role="button" class="custom-btn" data-theme="b" class="custom-btn2"> <font size="5" color="#fff"  style="display:none"><< Indietro </font></a>
+
+					<a href="javascript:salva()" id="btnsalva" data-role="button" class="custom-btn" data-theme="b" class="custom-btn2"> <font size="5" color="#fff" style="display:none">>> Carica Tutto OnLine <<</font></a>
+
+                    <a href="javascript:indietro()" id="btnindietro" data-role="button" class="custom-btn" data-theme="b" class="custom-btn2"> <font size="5" color="#fff" style="display:none"><< Indietro </font></a>
+                        
+                    <a href="javascript:dlt()" id="btncancella" data-role="button" class="custom-btn22" data-theme="b" class="custom-btn2" style="display:none"><font size="5" color="#fff">X Cancella Tutto X</font></a>
+                        
+                    <br>
 					</center>
 				</div>
 			</div>
@@ -751,7 +800,7 @@ a {text-decoration:none;}
 			<div id="footer" data-role="footer" data-theme="c" data-tap-toggle="false" data-position="fixed" class="div1">
 				<div id="opzioni" data-role="navbar" class="nav" data-grid="a" data-theme="c" class="div1">
 					<ul>
-						<li><a href="#page2" id="programas" data-icon="userhome" rel="external" ><font size="1">Carica Volantini</font></a></li>
+						<li><a href="#page2" onclick="javascript:carica2()" id="programas" data-icon="userhome" rel="external" ><font size="1">Carica Volantini</font></a></li>
 						<li><a id="altrobtn" href="#mypanelH" onclick="javascript:rati()" data-icon="pinhome"><font size="1">Altro</font></a></li>
 						
 					</ul>
@@ -768,21 +817,75 @@ a {text-decoration:none;}
 			</div>
 			
 			<div class="spinner" id="spinner"></div>
-			
+
+			<div id="wrapper2">
+				<div id="scroller">
+
 			<center>
 			<form name="formia2" action="entra.asp" method="post">
 						 
-						 <table width="100%" border="0"><tr><td>
+            <table width="100%" border="0"><tr><td>
 							 <table width="100%" border="0" align="center">
-								 <tr><td align="center"><img src="img/vol1.png" id="myImageVol" width="90px"></td><td align="center"><img src="img/vol1.png" id="myImageVol2" width="90px"></td></tr>
-								 <tr><td align="center"><a id="radio" href="javascript:prendi()" data-role="button" data-theme="b" class="custom-btn5" rel="external">Carica</a></td><td align="center"><a id="radio" href="javascript:prendi2()" data-role="button" data-theme="b" class="custom-btn5" rel="external">Carica</a></td></tr>
-								 <tr><td align="center"><img src="img/vol1.png" id="myImageVol3" width="90px"></td><td align="center"><img src="img/vol1.png" id="myImageVol4" width="90px"></td></tr>
-								 <tr><td align="center"><a id="radio" href="javascript:prendi3()" data-role="button" data-theme="b" class="custom-btn5" rel="external">Carica</a></td><td align="center"><a id="radio" href="javascript:prendi4()" data-role="button" data-theme="b" class="custom-btn5" rel="external">Carica</a></td></tr>
-								 <tr><td align="center"><img src="img/vol1.png" id="myImageVol5" width="90px"></td><td align="center"><img src="img/vol1.png" id="myImageVol6" width="90px"></td></tr>
-								 <tr><td align="center"><a id="radio" href="javascript:prendi5()" data-role="button" data-theme="b" class="custom-btn5" rel="external">Carica</a></td><td align="center"><a id="radio" href="javascript:prendi6()" data-role="button" data-theme="b" class="custom-btn5" rel="external">Carica</a></td></tr>
+								 <tr>
+									 <td align="center">
+										 <img src="img/vol1.png" id="myImageVol" height="90px">
+									 </td>
+									 <td align="center">
+										 <img src="img/vol1.png" id="myImageVol2" height="90px">
+									</td>
+								 </tr>
+								 <tr>
+									 <td align="center">
+										 <input type="text" data-theme="a" name="NomeAzienda" id="NomeAzienda" value="" placeholder="Azienda" class="scrivo">
+										 <input type="text" data-theme="a" name="Settore" id="Settore" value="" placeholder="Settore" class="scrivo">
+										 <input type="text" data-theme="a" name="TelAzienda" id="TelAzienda" value="" placeholder="Tel. Az." class="scrivo">
+										 <a id="radio" href="javascript:prendi()" data-role="button" data-theme="b" class="custom-btn5" rel="external">Carica</a>
+									 </td>
+									 <td align="center">
+										 <input type="text" data-theme="a" name="NomeAzienda1" id="NomeAzienda1" value="" placeholder="Azienda" class="scrivo">
+										 <input type="text" data-theme="a" name="Settore1" id="Settore1" value="" placeholder="Settore" class="scrivo">
+										 <input type="text" data-theme="a" name="TelAzienda1" id="TelAzienda1" value="" placeholder="Tel. Az." class="scrivo">
+										 <a id="radio" href="javascript:prendi2()" data-role="button" data-theme="b" class="custom-btn5" rel="external">Carica</a>
+									</td>
+								 </tr>
+								 <tr><td colspan="2"><hr></td></tr>
+								 <tr><td align="center"><img src="img/vol1.png" id="myImageVol3" height="90px"></td><td align="center"><img src="img/vol1.png" id="myImageVol4" height="90px"></td></tr>
+								 <tr>
+									 <td align="center">
+										<input type="text" data-theme="a" name="NomeAzienda2" id="NomeAzienda2" value="" placeholder="Azienda" class="scrivo">
+										<input type="text" data-theme="a" name="Settore2" id="Settore2" value="" placeholder="Settore" class="scrivo">
+										<input type="text" data-theme="a" name="TelAzienda2" id="TelAzienda2" value="" placeholder="Tel. Az." class="scrivo">
+										<a id="radio" href="javascript:prendi3()" data-role="button" data-theme="b" class="custom-btn5" rel="external">Carica</a>
+									 </td>
+									 <td align="center">
+										<input type="text" data-theme="a" name="NomeAzienda3" id="NomeAzienda3" value="" placeholder="Azienda" class="scrivo">
+										<input type="text" data-theme="a" name="Settore3" id="Settore3" value="" placeholder="Settore" class="scrivo">
+										<input type="text" data-theme="a" name="TelAzienda3" id="TelAzienda3" value="" placeholder="Tel. Az." class="scrivo">
+										<a id="radio" href="javascript:prendi4()" data-role="button" data-theme="b" class="custom-btn5" rel="external">Carcica</a>
+									 </td>
+								 </tr>
+								 <tr><td colspan="2"><hr></td></tr>
+								 <tr><td align="center"><img src="img/vol1.png" id="myImageVol5" height="90px"></td><td align="center"><img src="img/vol1.png" id="myImageVol6" height="90px"></td></tr>
+								 <tr>
+									 <td align="center">
+										<input type="text" data-theme="a" name="NomeAzienda4" id="NomeAzienda4" value="" placeholder="Azienda" class="scrivo">
+										<input type="text" data-theme="a" name="Settore4" id="Settore4" value="" placeholder="Settore" class="scrivo">
+										<input type="text" data-theme="a" name="TelAzienda4" id="TelAzienda4" value="" placeholder="Tel. Az." class="scrivo">
+										<a id="radio" href="javascript:prendi5()" data-role="button" data-theme="b" class="custom-btn5" rel="external">Carica</a>
+									 </td>
+									 <td align="center">
+										<input type="text" data-theme="a" name="NomeAzienda5" id="NomeAzienda5" value="" placeholder="Azienda" class="scrivo">
+										<input type="text" data-theme="a" name="Settore5" id="Settore5" value="" placeholder="Settore" class="scrivo">
+										<input type="text" data-theme="a" name="TelAzienda5" id="TelAzienda5" value="" placeholder="Tel. Az." class="scrivo">
+										 <a id="radio" href="javascript:prendi6()" data-role="button" data-theme="b" class="custom-btn5" rel="external">Carcica</a>
+									 </td>
+								 </tr>
 							</table>
 						</td></tr></table>
 			</form>
+
+          </div>
+			</div>
 			
 			<div data-role="footer" align="center" data-theme="c" data-position="fixed" data-tap-toggle="false" class="div1">
 				<table id="idfooter4" width="100%" align="center">
