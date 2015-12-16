@@ -765,6 +765,7 @@ function vedivia(){
 function indietrovia(){
     
 	$("#viale").hide();
+    $("#civiccia").hide()
 	$("#civiccia1").hide();
      $("#btnindietroA").hide();
 
@@ -1517,6 +1518,7 @@ document.addEventListener('touchmove', function (e) { e.preventDefault(); }, fal
 function salvalavoro(){
    $("#tutto").hide();
    $("#btnavanti").hide();
+   $("#btnindietroA").hide();
    $("#btnsalva").show();
    $("#btnindietroB").show();
    $("#ultimatbl").show();
