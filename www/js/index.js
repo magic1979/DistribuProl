@@ -751,6 +751,7 @@ function vedivia(){
     //sparire dati
     $("#dati").hide();
     $("#btnavanti").show();
+     $("#btnindietroA").show();
 
 	checkPos()
 	
@@ -765,6 +766,7 @@ function indietrovia(){
     
 	$("#viale").hide();
 	$("#civiccia1").hide();
+     $("#btnindietroA").hide();
 
     $("#dati").show();
     $("#btnavanti").hide();
@@ -1516,7 +1518,7 @@ function salvalavoro(){
    $("#tutto").hide();
    $("#btnavanti").hide();
    $("#btnsalva").show();
-   $("#btnindietroA").show();
+   $("#btnindietroB").show();
    $("#ultimatbl").show();
    
    
@@ -1527,7 +1529,7 @@ function indietro(){
    $("#btnavanti").show();
    $("#btnsalva").hide();
    $("#ultimatbl").hide();
-   $("#btnindietro").hide();
+   $("#btnindietroB").hide();
 }
 
 
