@@ -1516,6 +1516,7 @@ function salvalavoro(){
    $("#tutto").hide();
    $("#btnavanti").hide();
    $("#btnsalva").show();
+   $("#btnindietroA").show();
    $("#ultimatbl").show();
    
    
