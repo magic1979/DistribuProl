@@ -402,7 +402,6 @@ function dlt(){
 }
 
 
-
 function onConfirm(button) {
 	
 	if (button==1){
@@ -462,7 +461,7 @@ function checkPos() {
 
 function codeLatLng(lati,lngi) {
 
-	
+
 	var geocoder;
 	geocoder = new google.maps.Geocoder();
 	//var input = "41.875094, 12.478151";
@@ -473,18 +472,24 @@ function codeLatLng(lati,lngi) {
 	
 	geocoder.geocode({'latLng': latlng}, function(results, status) {
 					 if (status == google.maps.GeocoderStatus.OK) {
+					 
+					 
 					 if (results[0]) {
 					 
 					 var viadotto = results[0].formatted_address;
 					 
-					 localStorage.setItem("Via", viadotto)
+					 var mySplitResult = viadotto.split(",");
+					 
+					 localStorage.setItem("Via", mySplitResult[0].replace(/[0-9]/g, '').replace('-', ''))
 
-					 self.document.formia.via.value = viadotto
+					 self.document.formia.via.value = mySplitResult[0].replace(/[0-9]/g, '').replace('-', '');
 					 
 					 
 					 $(".spinner").hide();
 
 					 
+					 }
+
 					 } else {
 					 navigator.notification.alert(
 												  'Non riesco a rilevare la tua posizione',  // message
@@ -492,20 +497,23 @@ function codeLatLng(lati,lngi) {
 												  'Attenzione',            // title
 												  'OK'                  // buttonName
 												  );
+					 
 					 $(".spinner").hide();
+
 
 					 }
-					 } else {
-					 navigator.notification.alert(
-												  'Non riesco a rilevare la tua posizione',  // message
-												  alertDismissed,         // callback
-												  'Attenzione',            // title
-												  'OK'                  // buttonName
-												  );
 					 
-					 $(".spinner").hide();
-
-
+					 if(results[1]){
+					 
+						var cittaa = results[1].formatted_address;
+						var mySplitResult1 = cittaa.split(",");
+					 
+						localStorage.setItem("Citta", mySplitResult1[1].replace(/[0-9]/g, ''))
+					 
+						//alert(mySplitResult1[1].replace(/[0-9]/g, ''))
+					 
+						return;
+						
 					 }
 			});
 
@@ -1395,7 +1403,7 @@ function salvatutto() {
 									  $.ajax({
 											 type: "POST",
 											 url: "https://app.prolution.it/api/volantinaggio/civico",
-											 data: { rapporto:localStorage.getItem("rapporto"), data:results.rows.item(i).Data, ora:results.rows.item(i).Ora, via:results.rows.item(i).Via, civico:results.rows.item(i).Civico, citta:"Roma", volantini:results.rows.item(i).Volantini, longitudine:results.rows.item(i).Longitudine, latitudine:results.rows.item(i).Latitudine, foto:results.rows.item(i).Foto },
+											 data: { rapporto:localStorage.getItem("rapporto"), data:results.rows.item(i).Data, ora:results.rows.item(i).Ora, via:results.rows.item(i).Via, civico:results.rows.item(i).Civico, citta:localStorage.getItem("Citta"), volantini:results.rows.item(i).Volantini, longitudine:results.rows.item(i).Longitudine, latitudine:results.rows.item(i).Latitudine, foto:results.rows.item(i).Foto },
 											 //url: "http://www.gtechplay.com/prolution/Check_CoordinateV2.asp",
 											 //data: {Data:results.rows.item(i).Data, Ora:results.rows.item(i).Ora, Civico:results.rows.item(i).Civico, Nome:results.rows.item(i).Foto},
 											 cache: false,
@@ -1529,6 +1537,7 @@ function salvalavoro(){
 function indietro(){
    $("#tutto").show();
    $("#btnavanti").show();
+   $("#btnindietroA").show();
    $("#btnsalva").hide();
    $("#ultimatbl").hide();
    $("#btnindietroB").hide();
