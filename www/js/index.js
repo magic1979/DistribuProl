@@ -187,7 +187,7 @@ var app = {
 			
 			//self.document.formia.operatore.value = localStorage.getItem("email")
 			self.document.formia.operatore.value = localStorage.getItem("idoperatore")
-			self.document.formia.id.value = "2790";
+			//self.document.formia.id.value = "2790";
 			
 		}
 		
@@ -1531,7 +1531,7 @@ function salvalavoro(){
    $("#btnindietroB").show();
    $("#ultimatbl").show();
    
-   
+   myScroll.scrollToElement("#ora_fine", "1s");
 }
 
 function indietro(){

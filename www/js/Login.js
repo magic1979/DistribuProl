@@ -42,8 +42,8 @@ function onDeviceReady() {
 		connectionStatus = navigator.onLine ? 'online' : 'offline';
 		
 		if(connectionStatus=='online'){
-			document.getElementById("email").value = "F10620"
-			document.getElementById("password").value = "ivQ0MQ4N"
+			//document.getElementById("email").value = "F10620"
+			//document.getElementById("password").value = "ivQ0MQ4N"
 			
 		}
 		else{
