@@ -768,6 +768,9 @@ function vedivia(){
 	
 	myScroll.scrollToElement("#via", "1s");
 	
+	
+	//$('#id').focus();
+	
 }
 
 function indietrovia(){
@@ -780,7 +783,11 @@ function indietrovia(){
     $("#dati").show();
     $("#btnavanti").hide();
 	
+	
 	myScroll.scrollToElement("#id", "1s");
+	$('#id').focus();
+	
+	myScroll.refresh();
 	
 }
 
@@ -790,11 +797,10 @@ function vedicivico(){
 	self.document.formia.civico.value = ""
 	
 	//initscroll()
-	myScroll.refresh();
-	
+
 	myScroll.scrollToElement("#civico", "1s");
 	
-	//myScroll.scrollTo(0, myScroll.maxScrollY, 0);
+	myScroll.refresh();
 }
 
 // FOTO VOLANTINO
@@ -1269,6 +1275,17 @@ function salva() {
 		return;
 	}
 	
+	if (self.document.formia.id.value == "") {
+		navigator.notification.alert(
+									 'inserire un codice servizio valido',  // message
+									 alertDismissed,         // callback
+									 'Orario',            // title
+									 'OK'                  // buttonName
+									 );
+								 
+		return;
+	}
+	
 	
 
 	localStorage.setItem("servizio", document.getElementById("id").value);
@@ -1532,6 +1549,8 @@ function salvalavoro(){
    $("#ultimatbl").show();
    
    myScroll.scrollToElement("#ora_fine", "1s");
+   
+   myScroll.refresh();
 }
 
 function indietro(){
@@ -1541,6 +1560,11 @@ function indietro(){
    $("#btnsalva").hide();
    $("#ultimatbl").hide();
    $("#btnindietroB").hide();
+   
+   	myScroll.scrollToElement("#civico", "1s");
+	$('#civico').focus();
+	
+	myScroll.refresh();
 }
 
 
