@@ -263,6 +263,10 @@
 		
 		.custom-btn22 {
 			width: 280px;
+			
+			border-radius: 5px;
+			-moz-border-radius: 5px; /* firefox */
+			-webkit-border-radius: 5px; /* safari, chrome */
 		}
 		
 		.custom-btn2 {
@@ -277,7 +281,7 @@
 		}
 		.custom-btn4 {
 			width: 100px;
-			height:70px;
+			height:60px;
 			background-color: #4885ef;
 		}
 		
@@ -655,7 +659,7 @@ a {text-decoration:none;}
 		<div id="page" data-role="page" class="div2" >
 			
 			<div id="header" data-role="header" data-theme="b" data-tap-toggle="false" data-position="fixed" class="div1">
-				<table align="center" width="100%" valign="center" border="0"><tr><td align="center" valign="center"><!--<img src="img/image3017.png" width="150px" height="36px">class="fontsforweb_fontid_2802"--><font  color="#4885ef" class="carattere" size="5.5">Prolution Distribuzione</font></td></tr></table>
+				<table align="center" width="100%" valign="center" border="0"><tr><td align="center" valign="center"><!--<img src="img/image3017.png" width="150px" height="36px">class="fontsforweb_fontid_2802"--><img src="img/Prolution.png" width="80"></td></tr></table>
 			</div>
 			<div class="spinner" id="spinner"></div>
 			
@@ -673,7 +677,7 @@ a {text-decoration:none;}
 										<table width="100%" border="0">
 											<tr>
 												<td width="50%"><input type="text" data-theme="a" name="id" id="id" value="" placeholder="id servizio" class="scrivo"></td>
-												<td width="50%"><input type="text" data-theme="a" name="operatore" id="operatore" value="" placeholder="operatore" class="scrivo"></td>
+												<td width="50%"><input type="text" data-theme="a" name="operatore" id="operatore" value="" placeholder="operatore" class="scrivo" readonly></td>
 											</tr>
 											<tr>
 												<td colspan="4" width="75%"><input type="text" data-theme="a" name="data" id="data" value="" placeholder="data" class="scrivo"></td>
@@ -698,7 +702,7 @@ a {text-decoration:none;}
 					<tr><td colspan="3"><br></td></td><tr>
 					
 					<tr>
-                        <td colspan="3"><a href="javascript:vedivia()" id="" data-role="button" data-theme="b" class="custom-btn2"><font size="5" color="#fff">Nuova Via</font></a></td>
+                        <td colspan="3"><a href="javascript:vedivia()" id="" data-role="button" data-theme="b" class="custom-btn2"><font size="5.5" color="#fff">Nuova Via</font></a></td>
                         </td>
                     <tr>
 					<tr id="viale" style="display:none">
@@ -784,11 +788,11 @@ a {text-decoration:none;}
 				</table>
 			</div>
 			
-			<div id="footer" data-role="footer" data-theme="c" data-tap-toggle="false" data-position="fixed" class="div1">
-				<div id="opzioni" data-role="navbar" class="nav" data-grid="a" data-theme="c" class="div1">
+			<div id="footer" data-role="footer" data-theme="b" data-tap-toggle="false" data-position="fixed" class="div1">
+				<div id="opzioni" data-role="navbar" class="nav" data-grid="a" data-theme="b" class="div1">
 					<ul>
-						<li><a href="#page2" onclick="javascript:carica2()" id="programas" data-icon="userhome" rel="external" ><font size="1">Carica Volantini</font></a></li>
-						<li><a id="altrobtn" href="#mypanelH" onclick="javascript:rati()" data-icon="pinhome"><font size="1">Altro</font></a></li>
+						<li><a href="#page2" onclick="javascript:carica2()" id="programas" data-icon="userhome" rel="external" ><font size="1" color="#fff">Carica Volantini</font></a></li>
+						<li><a id="altrobtn" href="#mypanelH" onclick="javascript:rati()" data-icon="pinhome"><font size="1" color="#fff">Altro</font></a></li>
 						
 					</ul>
 				</div>
