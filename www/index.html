@@ -649,7 +649,7 @@ a {text-decoration:none;}
 		
 		.Large {
 			font-size: 20pt;
-			height: 70px;
+			height: 80px;
 		}
 		
 		.scrivo {
@@ -661,6 +661,32 @@ a {text-decoration:none;}
 		
 		input[type="text"] { 
 			-webkit-user-select: text; 
+		}
+		
+		#custom-btn {
+			width: 150px;
+			height: 50px !important;
+			background-color: #72b0df;
+			border-radius: 15px !important;
+			/*background:url(http://www.lawyersgunsmoneyblog.com/wp-content/uploads/2012/08/american-flag-2a.jpg) center center no-repeat;*/
+		}
+		
+		#custom-btn span span {
+			height: 100px !important;
+			line-height: 70px;
+		}
+		
+		#custom-btnC {
+			width: 150px;
+			height: 50px !important;
+			background-color: #72b0df;
+			border-radius: 15px !important;
+			/*background:url(http://www.lawyersgunsmoneyblog.com/wp-content/uploads/2012/08/american-flag-2a.jpg) center center no-repeat;*/
+		}
+		
+		#custom-btnC span span {
+			height: 100px !important;
+			line-height: 70px;
 		}
 		</style>
 		
@@ -715,7 +741,7 @@ a {text-decoration:none;}
 					<tr><td colspan="3"><br></td></td><tr>
 					
 					<tr>
-                        <td colspan="3"><a href="javascript:vedivia()" id="" data-role="button" data-theme="b" class="custom-btn2"><font size="5.5" color="#fff">Nuova Via</font></a></td>
+                        <td colspan="3"><a href="javascript:vedivia()" id="custom-btn" data-theme="b"><font size="5.5" color="#fff">Nuova Via</font></a></td>
                         </td>
                     <tr>
 					<tr id="viale" style="display:none">
@@ -723,7 +749,7 @@ a {text-decoration:none;}
                         </td>   
                     <tr>
 					<tr id="civiccia1" style="display:none">
-                        <td colspan="3"><a href="javascript:vedicivico()" id="#" data-role="button" class="custom-btn3" data-theme="b"><font size="5" color="#fff">+ Civico</font></a></td></td>
+                        <td colspan="3"><a href="javascript:vedicivico()" id="custom-btnC" data-theme="b"><font size="5" color="#fff">+ Civico</font></a></td></td>
                     <tr>
 						<tr id="civiccia" style="display:none">
 							<td width="25%" valign="top"><input type="text" data-theme="a" name="civico" id="civico" value="" placeholder="civico" class="Large"></td>
