@@ -1130,6 +1130,7 @@ function scatta(){
 									 'Indirizzo',            // title
 									 'OK'                  // buttonName
 									 );
+		$('#via').focus();
 		return;
 	}
 	if (self.document.formia.citta.value == "") {
@@ -1139,8 +1140,10 @@ function scatta(){
 									 'Indirizzo',            // title
 									 'OK'                  // buttonName
 									 );
+		$('#citta').focus();
 		return;
 	}
+	
 	
 	if (self.document.formia.nvolantini.value == "") {
 		navigator.notification.alert(
