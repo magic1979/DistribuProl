@@ -766,6 +766,7 @@ function vedivia(){
 	checkPos()
 	
 	$("#viale").show();
+	$("#viale2").show();
 	$("#civiccia1").show();
 	
 	myScroll.scrollToElement("#via", "1s");
@@ -778,6 +779,7 @@ function vedivia(){
 function indietrovia(){
     
 	$("#viale").hide();
+	$("#viale2").hide();
     $("#civiccia").hide()
 	$("#civiccia1").hide();
      $("#btnindietroA").hide();
