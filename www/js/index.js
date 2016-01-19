@@ -509,7 +509,9 @@ function codeLatLng(lati,lngi) {
 						var mySplitResult1 = cittaa.split(",");
 					 
 						localStorage.setItem("Citta", mySplitResult1[1].replace(/[0-9]/g, ''))
-					 
+						
+						 self.document.formia.citta.value = localStorage.getItem("Citta");
+						
 						//alert(mySplitResult1[1].replace(/[0-9]/g, ''))
 					 
 						return;
@@ -1121,7 +1123,24 @@ function Successo6(imageData) {
 // FOTO E ARCHIVIO
 
 function scatta(){
-	//localStorage.setItem("imgcivico", "");
+	if (self.document.formia.via.value == "") {
+		navigator.notification.alert(
+									 'inserire un indirizzo corretto',  // message
+									 alertDismissed,         // callback
+									 'Indirizzo',            // title
+									 'OK'                  // buttonName
+									 );
+		return;
+	}
+	if (self.document.formia.citta.value == "") {
+		navigator.notification.alert(
+									 'inserire una citta corretta',  // message
+									 alertDismissed,         // callback
+									 'Indirizzo',            // title
+									 'OK'                  // buttonName
+									 );
+		return;
+	}
 	
 	if (self.document.formia.nvolantini.value == "") {
 		navigator.notification.alert(
