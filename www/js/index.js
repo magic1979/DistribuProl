@@ -1168,7 +1168,7 @@ function scatta(){
 		return;
 	}
 
-	
+	localStorage.setItem("Citta", self.document.formia.citta.value)
 	//agg2()
 	
 	navigator.camera.getPicture(onSuccess, onFail, { quality: 30,
