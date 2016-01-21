@@ -451,9 +451,12 @@ function checkPos() {
 		
 		localStorage.setItem("geostory", "NO")
 		
-		/*$("#radio").attr("maps:q=Via di Acilia, 17,Roma");
-		$("#radio2").attr("maps:q=Via di Acilia, 17,Roma");
-		$("#radio9").attr("maps:q=Via di Acilia, 17,Roma");*/
+		navigator.notification.alert(
+			'Non riesco a rilevare la tua posizione, attiva il gps sul tuo cellulare',  // message
+			alertDismissed,         // callback
+			'Attenzione',            // title
+			'OK'                  // buttonName
+		 );
 
 	}
 	
@@ -510,7 +513,7 @@ function codeLatLng(lati,lngi) {
 					 
 						localStorage.setItem("Citta", mySplitResult1[1].replace(/[0-9]/g, ''))
 						
-						 self.document.formia.citta.value = localStorage.getItem("Citta");
+						self.document.formia.citta.value = mySplitResult1[1].replace(/[0-9]/g, '').trim();
 						
 						//alert(mySplitResult1[1].replace(/[0-9]/g, ''))
 					 
