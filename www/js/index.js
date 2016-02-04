@@ -784,9 +784,24 @@ function vedivia(){
 	
 	myScroll.scrollToElement("#via", "1s");
 	
-	
 	//$('#id').focus();
 	
+}
+
+function indietro(){
+   $("#tutto").show();
+   $("#btnavanti").show();
+   $("#btnindietroA").show();
+   $("#btnsalva").hide();
+   $("#ultimatbl").hide();
+   $("#btnindietroB").hide();
+   
+   	setTimeout (function(){
+		myScroll.scrollToElement("#civico", "1s");
+		//$('#civico').focus();
+	}, 700);
+	
+	myScroll.refresh();
 }
 
 function indietrovia(){
@@ -800,9 +815,10 @@ function indietrovia(){
     $("#dati").show();
     $("#btnavanti").hide();
 	
-	
-	myScroll.scrollToElement("#id", "1s");
-	$('#id').focus();
+	setTimeout (function(){
+		myScroll.scrollToElement("#id", "1s");
+		//$('#id').focus();
+	}, 700);
 	
 	myScroll.refresh();
 	
@@ -815,8 +831,8 @@ function vedicivico(){
 	
 	setTimeout (function(){
 		myScroll.scrollToElement("#civico", "1s");
-		$('#civico').focus();
-	}, 500);
+		//$('#civico').focus();
+	}, 700);
 
 	myScroll.refresh();
 }
@@ -1591,19 +1607,6 @@ function salvalavoro(){
    myScroll.refresh();
 }
 
-function indietro(){
-   $("#tutto").show();
-   $("#btnavanti").show();
-   $("#btnindietroA").show();
-   $("#btnsalva").hide();
-   $("#ultimatbl").hide();
-   $("#btnindietroB").hide();
-   
-   	myScroll.scrollToElement("#civico", "1s");
-	$('#civico').focus();
-	
-	myScroll.refresh();
-}
 
 
 function logout(){
