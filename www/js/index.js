@@ -24,6 +24,8 @@ var app = {
     // Update DOM on a Received Event
     receivedEvent: function(id) {
 		
+			document.body.style.height = screen.availHeight + 'px';
+		
 		    $('#NomeAzienda').focus(function(){
 				myScroll.scrollToElement("#NomeAzienda", "1s");
 			});
@@ -94,6 +96,14 @@ var app = {
 			
 			$('#TelAzienda5').focus(function(){
 				myScroll.scrollToElement("#TelAzienda", "1s");
+			});
+			
+			$('#civico').focus(function(){
+				myScroll.scrollToElement("#civico", "1s");
+			});
+			
+			$('#nvolantini').focus(function(){
+				myScroll.scrollToElement("#nvolantini", "1s");
 			});
 			
 			
@@ -803,10 +813,11 @@ function vedicivico(){
 	self.document.formia.nvolantini.value = ""
 	self.document.formia.civico.value = ""
 	
-	//initscroll()
+	setTimeout (function(){
+		myScroll.scrollToElement("#civico", "1s");
+		$('#civico').focus();
+	}, 500);
 
-	myScroll.scrollToElement("#civico", "1s");
-	
 	myScroll.refresh();
 }
 
